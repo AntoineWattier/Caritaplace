@@ -43,7 +43,7 @@
     height: 6px; top: 25px;
     background-position: 0 -60px;
 }
-#irs-1{
+form>.irs {
     width: 65%;
     margin: auto;
 }

@@ -37,7 +37,7 @@
 				</div>
 				<div class="infos">
 					<form action="#">
-						<input type="text" id="giveMonney" name="rangeName" value="1;100"></input>
+						<input type="text" class="giveMonney" name="rangeName" value="1;100"></input>
 						<input type="submit" value="DONNER"></input>
 					</form>
 				</div>
