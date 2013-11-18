@@ -28,7 +28,7 @@
 	</div>
 </section>
 <section id="liste">
-	<div class="content">
+	<div class="content clearfix">
 		<h2>6 associations correspondent à votre recherche</h2>
 		<div class="filterlist clearfix">
 			<div>
@@ -44,9 +44,9 @@
 				<a href="#">X</a>
 			</div>
 		</div>
-		<div class="element">
+		<div class="element second col-md-6">
 			<div class="logo">
-				<a href="#">Voir la page</a>
+				<a href="detail.php">Voir la page</a>
 				<img class="fond" src="css/images/fond_photo.png" alt="nothing"/>
 				<img class="photo" src="images/logo.jpg" alt="logo de l'association"/>
 				<span></span>
@@ -57,9 +57,9 @@
 				<p class="categ">Catégories: Environnement, Sport</p>
 			</div>
 		</div>
-		<div class="element">
+		<div class="element second col-md-6">
 			<div class="logo">
-				<a href="#">Voir la page</a>
+				<a href="detail.php">Voir la page</a>
 				<img class="fond" src="css/images/fond_photo.png" alt="nothing"/>
 				<img class="photo" src="images/logo.jpg" alt="logo de l'association"/>
 				<span></span>
@@ -70,9 +70,9 @@
 				<p class="categ">Catégories: Environnement, Sport</p>
 			</div>
 		</div>
-		<div class="element">
+		<div class="element second col-md-6">
 			<div class="logo">
-				<a href="#">Voir la page</a>
+				<a href="detail.php">Voir la page</a>
 				<img class="fond" src="css/images/fond_photo.png" alt="nothing"/>
 				<img class="photo" src="images/logo.jpg" alt="logo de l'association"/>
 				<span></span>

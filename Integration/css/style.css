@@ -253,55 +253,42 @@ margin:6px 0;
   color:white;
   font-size:160%;
 }
-#liste .element{
-  width:480px;
+#liste .element, #panier .element{
   overflow:hidden;
-  height:120px;
-  margin:20px 10px;
-  background-color:white;
+  height:130px;
+  margin:30px auto;
+  position:relative;
+}
+#panier .element>div{
+  overflow:hidden;
   display:inline-block;
   position: relative;
+  height:100%;
+  padding: 0 6px;
 }
-#panier .element{
-  width:480px;
-  overflow:hidden;
-  margin:20px auto;
-  background-color:white;
-  display:inline-block;
-  position: relative;
-}
-#panier .content>div{
-  display:table;
-  border-spacing:15px;
-}
-#panier .content>div .first{
-  display: table-cell;
-  width:550px;
+#panier .element .first{
   vertical-align: middle;
 }
-#panier .content>div .second{
-  display: table-cell;
-  width:440px;
+#panier .element .second{
   padding-top:0;
   vertical-align: top;
 }
-#panier .content>div .third{
-  display: table-cell;
-  width:30px;
-  background:#e74c3c;
-  vertical-align: middle;
-}
-#panier .content>div .third>p{
+#panier .element .third>a{
   text-align:center;
   font-size:180%;
   color:white;
   margin-bottom:0;
+  text-decoration:none;
+  width:100%;
+  display: block;
+  background:#e74c3c;
+  line-height: 140px;
+  height:100%;
 }
 #liste .element .logo, #panier .element .logo{
   height:100%;
   width:100%;
   top: 0;
-  right:330px;
   float: left;
   position:relative;
   position: absolute;
@@ -313,16 +300,23 @@ margin:6px 0;
   -o-transition: all 0.6s ease-in-out;
   transition: all 0.6s ease-in-out;
 }
+#liste .element .logo{
+  right:360px;
+}
+#panier .element .logo{
+  right:330px;
+}
 #panier .element .logo>p{
   width: 370px;
   float: left;
-  padding: 10px;
+  padding: 20px;
   color:white;
   font-family:SEGOEUIL;
   font-size:130%;
+  height:100%;
 }
 #panier .element .logo{
-  right: 395px;
+  right: 365px;
 }
 #liste .element .logo>a, #panier .element .logo>a{
 background-color: white;
@@ -337,7 +331,7 @@ width: 170px;
 float: left;
 text-decoration:none;
 }
-#liste .element:hover .logo, #panier .element:hover .logo{
+#liste .element:hover .logo, #panier .element>div:hover .logo{
   right:0px;
 }
 #liste .element .logo span, #panier .element .logo span{
@@ -345,53 +339,45 @@ position:absolute;
 height:29px;
 width:15px;
 right:-14px;
-top:45px;
+top:50px;
 background: url(images/fleche_photo.png) no-repeat center center;
 }
-#panier .element .logo span{
-top:60px;
-}
-#liste .element .logo .fond{
+#panier .element .logo .fond, #liste .element .logo .fond{
   position:absolute;
-  top:0;
-  right:0;
-}
-#panier .element .logo .fond{
-  position:absolute;
-  top:12px;
+  top:5px;
   right:0;
 }
 #liste .element .logo .photo, #panier .element .logo .photo{
 width:100px;
 height:100px;
-margin-top:10px;
+margin-top:15px;
 float:right;
 margin-right: 25px;
 }
-#panier .element .logo .photo{
- margin-top:22px;
-}
-#liste .element .infos, #panier .element .infos{
+#panier .element .infos, #liste .element .infos{
+  padding-left: 150px;
+  width: 100%;
+  height: 100%;
+  background-color:white;
   float: left;
-  width: 315px;
   height:100%;
   position:relative;
-  margin-left:150px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
-#panier .element .infos{
-  margin-left:170px;
-  width:355px;
-  height: 90px;
+#panier .element .infos>*, #liste .element .infos>*{
+  padding:0 10px;
 }
 #panier .element.second .infos{
-margin-left:0;
-width: 100%;
+  margin-left:0;
+  width: 100%;
 }
 #liste .element .infos h3, #panier .element .infos h3{
   text-align:center;
   font-family:SEGOEUIL;
   color:#333333;
-  margin-top:10px;
+  margin-top:25px;
   font-weight: bold;
   font-size: 200%;
 }
@@ -402,8 +388,6 @@ width: 100%;
   font-size:130%;
 }
 #liste .element .infos p.categ, #panier .element .infos p.categ{
-  position:absolute;
-  bottom:5px;
   margin:0;
   width:100%;
 }
@@ -422,16 +406,16 @@ footer p{
   display:table;
   border-spacing:8px;
 }
-#informations .content .element{
+#informations .element{
   background-color:white;
 }
-#informations .content .element>.top, #panier .content .element>.top{
+#informations .element>.top, #panier .element .top{
   width:100%;
   position: relative;
   background-color: #2980b9;
   padding:5px 10px;
 }
-#informations .element>.top span, #panier .element>.top span{
+#informations .element>.top span, #panier .element .top span{
   position: absolute;
   height: 15px;
   width: 29px;
@@ -439,8 +423,9 @@ footer p{
   margin-left:-15px;
   bottom: -14px;
   background: url(images/fleche_photo_bas.png) no-repeat center center;
+  z-index: 1;
 }
-#informations .content .element>.top h3, #informations .content .element>.top h2, #panier .content .element>.top h3{
+#informations .element>.top h3, #informations .element>.top h2, #panier .element .top h3{
   text-align:center;
   font-family:SEGOEUIL;
   color:white ;
@@ -527,7 +512,8 @@ footer p{
   padding-top: 40px;
 }
 #panier .second .infos {
-  padding: 30px 0 20px 0;
+  padding: 30px 0 0 0;
+  height: 90px;
 }
 #informations .element.third input[type="submit"]{
   margin: auto;
