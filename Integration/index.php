@@ -24,6 +24,8 @@
 			</div>
 		</form>
 	</div>
+	<div id="the_map">
+	</div>
 </section>
 <section id="liste">
 	<div class="content">

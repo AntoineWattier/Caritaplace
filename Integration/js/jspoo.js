@@ -1,5 +1,5 @@
 localisation.init({
-    carte : 'map',
+    carte : 'the_map',
     localized : function (pos) {
         var crd = pos.coords;
         var myLatlng = new google.maps.LatLng(crd.latitude,crd.longitude);

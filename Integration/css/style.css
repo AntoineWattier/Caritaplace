@@ -34,6 +34,9 @@ header{
   background-color:#353535;
   height:54px;
   border-bottom: 1px solid grey;
+  position: absolute;
+  top: 0;
+  z-index: 2;
 }
 header>span{
 background-color:#2980b9;
@@ -71,7 +74,6 @@ header #panier{
   width: 170px;
   color:#353535;
   padding:0 10px;
-  height: 76px;
   position: relative;
   z-index: 2;
 }
@@ -118,6 +120,10 @@ z-index: 4;
   width: 100%;
   height: 400px;
   position: relative;
+  margin-top: 54px;
+}
+#the_map{
+  height:100%;
 }
 #map.little{
   height: 200px;
@@ -133,6 +139,7 @@ z-index: 4;
   color:#b6b6b6;
   padding:10px 20px;
   font-family:SEGOEUIL;
+  z-index: 1;
 }
 #map>#filtre h2{
 text-align:center;
@@ -454,7 +461,7 @@ footer p{
   text-align:center;
   font-family:SEGOEUIL;
   color:white ;
-  margin:10px auto;
+  margin:10px auto 0 auto;
   font-size:200%;
   padding:5px 20px;
   border-radius:3px;
