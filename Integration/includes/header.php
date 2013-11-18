@@ -12,6 +12,9 @@
 	  <link rel="stylesheet" href="rangeSlider/css/ionrangeSlider.css">
 	  <link rel="stylesheet" href="rangeSlider/css/ionrangeSliderskinSimple.css">
 	  <link rel="stylesheet" href="css/style.css">
+	  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+      <script type="text/javascript" src="js/localisation.js"></script>
+      <script type="text/javascript" src="js/utils.js"></script>
 	  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   	  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
   	  <script src="rangeSlider/js/ion-rangeSlider/ionrangeSlider.js"></script>

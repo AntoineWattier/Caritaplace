@@ -9,6 +9,9 @@
 .slog{
   font-style:italic;
 }
+#map{
+  background-color: #0A4140;
+}
 
 /* ----------------- FIN ------------------ */
 body{
@@ -158,6 +161,7 @@ font-weight:bold;
   font-weight:bold;
   margin:20px 0;
 }
+
 #filtre #accordion>form{
   padding:0;
   margin:0;
