@@ -4,6 +4,8 @@ var longueurJson;
 var markerUser;
 var rond = false;
 var circle;
+var imgMarqueur = new google.maps.MarkerImage('wp-content/themes/caritaplace/images/pinAsso.png', new google.maps.Size(24, 34), new google.maps.Point(0,0), new google.maps.Point(12, 34));        
+
 var localisation={
     
     defaults : {
@@ -110,7 +112,7 @@ var localisation={
         }
     },
     ajouterMarkers : function(){        
-        downloadUrl('adresses.json',function(data){
+        downloadUrl('wp-content/themes/caritaplace/adresses.json',function(data){
             var fichierJson = eval('('+data+')');
             longueurJson = fichierJson.assos.length;
             for (var i = 0; i < longueurJson; i++) 
@@ -142,7 +144,8 @@ var localisation={
                 var coordonnees = results[0].geometry.location;
                 bounds.extend(coordonnees);
                 tabPin[y] = new google.maps.Marker({
-                    position: coordonnees
+                    position: coordonnees,
+                    icon: imgMarqueur
                 });
                 var infoBulle = new google.maps.InfoWindow({
                   content: content

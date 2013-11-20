@@ -4,7 +4,7 @@ localisation.init({
         var crd = pos.coords;
         var myLatlng = new google.maps.LatLng(crd.latitude,crd.longitude);
         bounds.extend(myLatlng);
-        var imageMarqueur = new google.maps.MarkerImage(WPURLS.siteurl+'images/pinUser1.png', new google.maps.Size(50, 50), new google.maps.Point(0,0), new google.maps.Point(25, 50));        
+        var imageMarqueur = new google.maps.MarkerImage('wp-content/themes/caritaplace/images/pinUser1.png', new google.maps.Size(24, 34), new google.maps.Point(0,0), new google.maps.Point(12, 34));        
             markerUser = new google.maps.Marker({
             position: myLatlng,
             title: "Vous",
@@ -13,10 +13,10 @@ localisation.init({
         markerUser.setMap(map);
 
         // remplacer par activation du rayon de recherche
-        document.getElementById('rond').on('click', function(){
-            var taille = parseInt(document.forms["test"].elements["taille"].value);
-            localisation.tri.call(this,taille);
-        });
+        // document.getElementById('rond').on('click', function(){
+        //     var taille = parseInt(document.forms["test"].elements["taille"].value);
+        //     localisation.tri.call(this,taille);
+        // });
 
     }
     ,
@@ -24,3 +24,20 @@ localisation.init({
         console.warn('Impossible d\'effectuer la géolocalisation');
     }
 });
+var form = document.getElementsByName('submit')[0];
+
+function code (evt) {
+    evt.preventDefault();
+    var nom = document.getElementsByName('name')[0].value.toUpperCase();
+
+    for (var i = 0; i < tabPin.length; i++) {
+        var nomJson = tabPin[i]._infowindow.content.toUpperCase();
+        if (nomJson.indexOf(nom)==-1) {
+            tabPin[i].setVisible(false);
+        }
+    }
+    return false;
+}
+
+form.addEventListener("click", code, false);
+
