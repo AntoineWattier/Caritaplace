@@ -3,4 +3,6 @@ Groupe composé de:
 - Kévin Chapron
 - Théo Pipaud
 - Allan Raquin 
+- Antoine Wattier
+- Pierre Zajac
 
