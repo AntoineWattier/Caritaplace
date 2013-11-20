@@ -7,8 +7,10 @@
 			<div id="accordion">
 				  <h3>Nom</h3>
 				  <div>
-				  	<input type="text" name="name" >
-					<input type="submit" name="submit" VALUE="OK">
+				  	<form>
+				  		<input type="text" name="name" >
+						<input type="submit" name="submit" VALUE="OK">
+				  	</form>
 				  </div>
 				  <h3>Catégorie</h3>
 				  <div class="clearfix">

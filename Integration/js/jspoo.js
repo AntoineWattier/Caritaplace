@@ -13,10 +13,10 @@ localisation.init({
         markerUser.setMap(map);
 
         // remplacer par activation du rayon de recherche
-        document.getElementById('rond').on('click', function(){
-            var taille = parseInt(document.forms["test"].elements["taille"].value);
-            localisation.tri.call(this,taille);
-        });
+        // document.getElementById('rond').on('click', function(){
+        //     var taille = parseInt(document.forms["test"].elements["taille"].value);
+        //     localisation.tri.call(this,taille);
+        // });
 
     }
     ,
@@ -24,3 +24,20 @@ localisation.init({
         console.warn('Impossible d\'effectuer la géolocalisation');
     }
 });
+var form = document.getElementsByName('submit')[0];
+
+function code (evt) {
+    evt.preventDefault();
+    var nom = document.getElementsByName('name')[0].value.toUpperCase();
+
+    for (var i = 0; i < tabPin.length; i++) {
+        var nomJson = tabPin[i]._infowindow.content.toUpperCase();
+        if (nomJson.indexOf(nom)==-1) {
+            tabPin[i].setVisible(false);
+        }
+    }
+    return false;
+}
+
+form.addEventListener("click", code, false);
+

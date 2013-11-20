@@ -4,16 +4,16 @@
 		{ 
 			"asso":
 			[
-				{"adresse": "19 avenue corentin cariou 75019 Paris" },
-				{ "nom": "Asso 1" },
+				{"adresse": "48 rue Linois - 75015 PARIS" },
+				{ "nom": "McDonald's PARIS BEAUGRENELLE" },
 				{ "lien": "img/test.jpg" }
 			]
 		},
 		{
 			"asso":
 			[
-				{"adresse": "21 avenue corentin cariou 75019 Paris" },
-				{ "nom": "Asso 2" },
+				{"adresse": "5 Avenue du Général Leclerc - 75014 PARIS" },
+				{ "nom": "McDonald's PARIS DENFERT ROCHEREAU" },
 				{ "lien": "img/test.jpg" }
 			]
 		},
@@ -32,7 +32,16 @@
 				{ "nom": "Asso 4" },
 				{ "lien": "img/test.jpg" }
 			]
+		}, 
+		{ 
+			"asso":
+			[
+				{"adresse": "116 Boulevard Diderot - 75012 PARIS" },
+				{ "nom": "McDonald's PARIS REUILLY DIDEROT" },
+				{ "lien": "img/test.jpg" }
+			]
 		},
+
 		{
 			"asso":
 			[
@@ -44,8 +53,8 @@
 		{
 			"asso":
 			[
-				{"adresse": "2 rue de rivoli" },
-				{ "nom": "Asso 6" },
+				{"adresse": "131 Avenue Victor Hugo - 75016 PARIS" },
+				{ "nom": "McDonald's PARIS VICTOR HUGO" },
 				{ "lien": "img/test.jpg" }
 			]			
 		}
