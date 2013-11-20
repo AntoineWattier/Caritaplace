@@ -108,6 +108,7 @@ var localisation={
             // attach circle to marker
             circle.bindTo('center', markerUser, 'position');
             google.maps.event.addListener(circle, 'radius_changed', function(){ localisation.tri.call(this);} );
+            google.maps.event.addListener(circle, 'center_changed', function(){ localisation.tri.call(this);} );
             localisation.tri.call(this);
             rond = true;
         }
