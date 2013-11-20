@@ -4,6 +4,8 @@ var longueurJson;
 var markerUser;
 var rond = false;
 var circle;
+var imgMarqueur = new google.maps.MarkerImage('images/pinAsso.png', new google.maps.Size(24, 34), new google.maps.Point(0,0), new google.maps.Point(12, 34));        
+
 var localisation={
     
     defaults : {
@@ -142,7 +144,8 @@ var localisation={
                 var coordonnees = results[0].geometry.location;
                 bounds.extend(coordonnees);
                 tabPin[y] = new google.maps.Marker({
-                    position: coordonnees
+                    position: coordonnees,
+                    icon: imgMarqueur
                 });
                 var infoBulle = new google.maps.InfoWindow({
                   content: content
