@@ -1,0 +1,53 @@
+{ 
+	"assos":
+	[
+		{ 
+			"asso":
+			[
+				{"adresse": "19 avenue corentin cariou 75019 Paris" },
+				{ "nom": "Asso 1" },
+				{ "lien": "img/test.jpg" }
+			]
+		},
+		{
+			"asso":
+			[
+				{"adresse": "21 avenue corentin cariou 75019 Paris" },
+				{ "nom": "Asso 2" },
+				{ "lien": "img/test.jpg" }
+			]
+		},
+		{
+			"asso":
+			[
+				{"adresse": "23 avenue corentin cariou 75019 Paris" },
+				{ "nom": "Asso 3" },
+				{ "lien": "img/test.jpg" }
+			]			
+		},
+		{ 
+			"asso":
+			[
+				{"adresse": "5 rue de rivoli" },
+				{ "nom": "Asso 4" },
+				{ "lien": "img/test.jpg" }
+			]
+		},
+		{
+			"asso":
+			[
+				{"adresse": "3 rue de breguet Paris" },
+				{ "nom": "Asso 5" },
+				{ "lien": "img/test.jpg" }
+			]
+		},
+		{
+			"asso":
+			[
+				{"adresse": "2 rue de rivoli" },
+				{ "nom": "Asso 6" },
+				{ "lien": "img/test.jpg" }
+			]			
+		}
+	]
+}
