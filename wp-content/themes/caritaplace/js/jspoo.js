@@ -12,11 +12,12 @@ localisation.init({
         });
         markerUser.setMap(map);
 
-        // remplacer par activation du rayon de recherche
-        // document.getElementById('rond').on('click', function(){
-        //     var taille = parseInt(document.forms["test"].elements["taille"].value);
-        //     localisation.tri.call(this,taille);
-        // });
+        //remplacer par activation du rayon de recherche
+        document.getElementById('rond').addEventListener('click', function(evt){
+            evt.preventDefault();
+            //var taille = parseInt(document.forms["test"].elements["taille"].value);
+            localisation.creerCercle.call(this,2500);
+        });
 
     }
     ,

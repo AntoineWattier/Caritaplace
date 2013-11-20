@@ -3,7 +3,7 @@
 <section id="map">
 	<div id="filtre">
 		<h2>PRECISEZ VOTRE RECHERCHE</h2>
-		<a href="#">LES ASSOCIATIONS AUTOUR DE MOI</a>
+		<a href="#" id ="rond">LES ASSOCIATIONS AUTOUR DE MOI</a>
 		<form action="#">
 			<div id="accordion">
 				  <h3>Nom</h3>

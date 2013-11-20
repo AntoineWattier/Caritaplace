@@ -6,7 +6,8 @@
 			[
 				{"adresse": "48 rue Linois - 75015 PARIS" },
 				{ "nom": "McDonald's PARIS BEAUGRENELLE" },
-				{ "lien": "img/test.jpg" }
+				{ "lien": "img/test.jpg" },
+				{ "categorie" : "Jeune Sport"}
 			]
 		},
 		{
@@ -14,7 +15,8 @@
 			[
 				{"adresse": "5 Avenue du Général Leclerc - 75014 PARIS" },
 				{ "nom": "McDonald's PARIS DENFERT ROCHEREAU" },
-				{ "lien": "img/test.jpg" }
+				{ "lien": "img/test.jpg" },
+				{ "categorie" : "Jeune"}
 			]
 		},
 		{
@@ -22,7 +24,8 @@
 			[
 				{"adresse": "23 avenue corentin cariou 75019 Paris" },
 				{ "nom": "Asso 3" },
-				{ "lien": "img/test.jpg" }
+				{ "lien": "img/test.jpg" },
+				{ "categorie" : "Sport"}
 			]			
 		},
 		{ 

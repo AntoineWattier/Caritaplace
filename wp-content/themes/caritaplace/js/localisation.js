@@ -4,6 +4,7 @@ var longueurJson;
 var markerUser;
 var rond = false;
 var circle;
+var boundcircle;
 var imgMarqueur = new google.maps.MarkerImage('wp-content/themes/caritaplace/images/pinAsso.png', new google.maps.Size(24, 34), new google.maps.Point(0,0), new google.maps.Point(12, 34));        
 
 var localisation={
@@ -79,36 +80,47 @@ var localisation={
         map = new google.maps.Map(document.getElementById(this.params.carte),mapOptions);
         this.ajouterMarkers();
     },
-    tri : function(taille){
-        if (!rond){ 
-            var rayon = taille;
-            circle = new google.maps.Circle({
-                map: map,
-                clickable: false,
-                // metres
-                radius: rayon,
-                fillColor: '#fff',
-                fillOpacity: .6,
-                strokeColor: '#313131',
-                strokeOpacity: .4,
-                strokeWeight: .8
-            });
-            console.log(circle);
-            // attach circle to marker
-            circle.bindTo('center', markerUser, 'position');
-            var boundcircle = circle.getBounds();   
-            for (var i = 0; i < tabPin.length; i++) {
-                if (boundcircle.contains(tabPin[i].getPosition())==false) {
-                    tabPin[i].setVisible(false);
-                }
-            }  
-        rond = true;
-        }else{
+    creerCercle : function (taille) {
+        if (rond) {
             circle.setMap(null);
             for (var i = 0; i < tabPin.length; i++) {
                 tabPin[i].setVisible(true);
             } 
             rond = false;
+        }else{
+            for (var i = 0; i < tabPin.length; i++) {
+                tabPin[i].setVisible(true);
+            } 
+            var rayon = taille;
+            circle = new google.maps.Circle({
+                map: map,
+                clickable: false,
+                // metre
+                radius: rayon,
+                fillColor: '#fff',
+                fillOpacity: .6,
+                strokeColor: '#313131',
+                strokeOpacity: .4,
+                strokeWeight: .8,
+                editable:true
+            });
+            rond = true;
+            // attach circle to marker
+            circle.bindTo('center', markerUser, 'position');
+            google.maps.event.addListener(circle, 'radius_changed', function(){ localisation.tri.call(this);} );
+            localisation.tri.call(this);
+            rond = true;
+        }
+    },
+
+    tri : function(){
+        for (var i = 0; i < tabPin.length; i++) {
+            tabPin[i].setVisible(true);
+        } 
+        for (var i = 0; i < tabPin.length; i++) {
+            if (circle.getBounds().contains(tabPin[i].getPosition())==false) {
+                tabPin[i].setVisible(false);
+            }
         }
     },
     ajouterMarkers : function(){        
