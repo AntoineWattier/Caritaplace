@@ -16,7 +16,9 @@
 /* ----------------- FIN ------------------ */
 body{
   font-size: .9em;
-  font-family:SEGOEUIL;
+  font-family:SEGOEUIL, arial;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
   background: rgb(132,132,132); /* Old browsers */
   /* IE9 SVG, needs conditional override of 'filter' to 'none' */
   background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIxJSIgc3RvcC1jb2xvcj0iIzg0ODQ4NCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMGYwZjAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
@@ -67,28 +69,29 @@ header>div>a>h1{
   border-radius:0 0 10px 10px;
   z-index: 10;
   box-shadow:rgba(0,0,0,0.6) 0 5px 8px;
+  text-align: center;
+	font-size: 280%;
+	color: white;
+	padding-top: 10px;
+	font-family: SEGOEUIL, arial;
 }
 header #panier{
   float:right;
-  background: #b6b6b6 url(images/portefeuille.png) no-repeat 21px 3px;
+  background: #ffb600 url(images/portefeuille.png) no-repeat 21px 1px;
   width: 170px;
   color:#353535;
   padding:0 10px;
   position: relative;
   z-index: 2;
+  height: 49px;
 }
-header #panier>div{
-padding:5px 0;
-border-left:1px dashed #353535;
-border-right:1px dashed #353535;
-}
-header #panier>div>p{
+header #panier>p{
   font-size:130%;
   margin: 0;
   line-height: 15px;
   margin: 12px 0 5px 0;
 }
-header #panier>div>p:first-child{
+header #panier>p:first-child{
   float:left;
   width: 65px;
   text-align:center;
@@ -96,7 +99,7 @@ header #panier>div>p:first-child{
   font-size:160%;
   margin:0;
 }
-header #panier>div>a{
+header #panier>a{
   text-align:center;
   color:#353535;
   width: 100%;
@@ -105,16 +108,6 @@ header #panier>div>a{
   clear:both;
   font-size:120%;
   font-weight: bold;
-}
-header>div>span{
-height: 27px;
-display: block;
-width: 6px;
-background: url(images/ombre_panier.png) no-repeat center -5px;
-float: right;
-margin-top: 49px;
-position: relative;
-z-index: 4;
 }
 #map{
   width: 100%;
@@ -138,19 +131,25 @@ z-index: 4;
   right: 50px;
   color:#b6b6b6;
   padding:10px 20px;
-  font-family:SEGOEUIL;
+  font-family:SEGOEUIL, arial;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
   z-index: 1;
 }
 #map>#filtre h2{
 text-align:center;
 font-size:200%;
-font-family:SEGOEUIL;
+font-family:SEGOEUIL, arial;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
 font-weight:bold;
 }
 #map>#filtre h3{
   text-align: right;
   font-size:150%;
-  font-family:SEGOEUIL;
+  font-family:SEGOEUIL, arial;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
   border-bottom:2px solid #b6b6b6;
   padding-bottom: 5px;
   margin:10px 0;
@@ -204,8 +203,16 @@ margin:6px 0;
   font-size:140%;
   font-weight:normal;
   margin: 0 10px;
-  font-family:SEGOEUIL;
+  font-family:SEGOEUIL, arial;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
   line-height: 30px;
+}
+header>div>a>h1>img {
+width: auto;
+height: auto;
+margin: auto;
+display: block;
 }
 .ui-accordion-header>span{
   background-position: center center;
@@ -215,7 +222,9 @@ margin:6px 0;
 }
 #liste h2{
   text-align:center;
-  font-family:SEGOEUIL;
+  font-family:SEGOEUIL, arial;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
   color:#2980b9;
 }
 #liste .content{
@@ -235,7 +244,9 @@ margin:6px 0;
   line-height: 20px;
 }
 #liste .filterlist>div>p{
-  font-family:SEGOEUIL;
+  font-family:SEGOEUIL, arial;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
   color: #b6b6b6;
   padding-right:35px;
   font-size:120%;
@@ -311,7 +322,9 @@ margin:6px 0;
   float: left;
   padding: 20px;
   color:white;
-  font-family:SEGOEUIL;
+  font-family:SEGOEUIL, arial;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
   font-size:130%;
   height:100%;
 }
@@ -375,7 +388,9 @@ margin-right: 25px;
 }
 #liste .element .infos h3, #panier .element .infos h3{
   text-align:center;
-  font-family:SEGOEUIL;
+  font-family:SEGOEUIL, arial;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
   color:#333333;
   margin-top:25px;
   font-weight: bold;
@@ -397,7 +412,9 @@ footer{
 }
 footer p{
   text-align:center;
-  font-family:SEGOEUIL;
+  font-family:SEGOEUIL, arial;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
   color:#b6b6b6;
   font-size:130%;
   padding-top:12px;
@@ -427,7 +444,9 @@ footer p{
 }
 #informations .element>.top h3, #informations .element>.top h2, #panier .element .top h3{
   text-align:center;
-  font-family:SEGOEUIL;
+  font-family:SEGOEUIL, arial;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
   color:white ;
   font-weight: bold;
   font-size: 200%;
@@ -435,7 +454,9 @@ footer p{
 }
 #panier h2{
   text-align:center;
-  font-family:SEGOEUIL;
+  font-family:SEGOEUIL, arial;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
   color:white ;
   font-size: 250%;
 }
@@ -444,7 +465,9 @@ footer p{
   display: block;
   width:300px;
   text-align:center;
-  font-family:SEGOEUIL;
+  font-family:SEGOEUIL, arial;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
   color:white ;
   margin:10px auto 0 auto;
   font-size:200%;
@@ -559,7 +582,9 @@ footer p{
   font-size:180%;
   font-weight:normal;
   margin-top:0;
-  font-family:SEGOEUIL;
+  font-family:SEGOEUIL, arial;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
 }
 #informations .content .element.fourth .infos .other>p{
   text-align:center;

@@ -3,24 +3,40 @@
 <section id="map">
 	<div id="filtre">
 		<h2>PRECISEZ VOTRE RECHERCHE</h2>
-		<a href="#" id ="rond">LES ASSOCIATIONS AUTOUR DE MOI</a>
+		<a href="#">LES ASSOCIATIONS AUTOUR DE MOI</a>
 		<form action="#">
 			<div id="accordion">
 				  <h3>Nom</h3>
 				  <div>
-				  	<input type="text" name="name" >
-					<input type="submit" name="submit" VALUE="OK">
+				  	<form>
+				  		<input type="text" name="name" >
+						<input type="submit" name="submit" VALUE="OK">
+				  	</form>
 				  </div>
-				  <h3>Catégorie</h3>
+				  <h3>Catégories</h3>
 				  <div class="clearfix">
-					<input type="checkbox" name="mode_paiement" value="Mastercard"> <label for="mode_paiement">Mastercard </label>
-					<input type="checkbox" name="mode_paiement" value="Visa"> <label for="mode_paiement">Visa  </label>
-					<input type="checkbox" name="mode_paiement" value="AmericanExpress"> <label for="mode_paiement">American Express </label>
+					  	<?php  
+				        $categories = get_terms( 'categories', array(
+				          'orderby'    => 'name',
+				          'hide_empty' => 0
+				        ));
+
+				        foreach ($categories as $categorie) : ?>     
+				              <input type="checkbox" name="mode_paiement" value="<?php echo $categorie->term_id ?>" id="<?php echo $categorie->slug ?>" />
+				              <label for="<?php echo $categorie->slug ?>" class="wrap" ><?php echo $categorie->name ?>	</label>			     
+				        <?php endforeach; ?>
 				  </div>
 				  <h3>Action en cours</h3>
 				  <div class="clearfix">
-					<input type="radio" name="mode_paiement" value="Mastercard"> <label for="mode_paiement">Oui </label>
-					<input type="radio" name="mode_paiement" value="Visa"> <label for="mode_paiement">Non  </label>
+					<?php  
+				        $actions = get_terms( 'action_en_cours', array(
+				          'hide_empty' => 0
+				        ));
+
+				        foreach ($actions as $action) : ?>     
+				              <input type="radio" name="action" value="<?php echo $action->term_id ?>" id="<?php echo $action->slug ?>" />
+				              <label for="<?php echo $action->slug ?>" class="wrap" ><?php echo $action->name ?>	</label>			     
+				        <?php endforeach; ?>
 				</div>
 			</div>
 		</form>

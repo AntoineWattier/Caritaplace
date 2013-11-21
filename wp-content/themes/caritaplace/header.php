@@ -16,14 +16,12 @@
 <header>
 	<span></span>
 	<div class="clearfix">
-		<a href="./"><h1><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/caritaplace.png" alt="logo" width="150" height="150"/></h1></a>
+		<a href="./"><h1><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/caritaplace.png" alt="logo"/>CaritaPlace</h1></a>
 
 		<div id="panier">
-			<div>
 				<p><strong>20€</strong></p>
 				<p><strong>VOS DONS <br /> 3</strong> associations</p>
 				<a href="#">ACCEDER</a>
-			</div>
 		</div>
 		<span></span>
 	</div>
