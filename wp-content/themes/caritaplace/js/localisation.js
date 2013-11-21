@@ -13,6 +13,7 @@ var localisation={
             carte : '#carte',
             localized : function(){},
             nonlocalized : function(){},
+            tri : function(){},            
     },
     
 
@@ -112,9 +113,12 @@ var localisation={
             rond = true;
         }
     },
-    bigTri : function() {
-        alert("yo");
-    },
+    //-------------------EXPERIMENTATION-------------------------------
+
+    // bigTri : function() {
+    //     alert("yo");
+    // },
+    //-------------------FIN EXPERIMENTATION-------------------------------
 
     tri : function(){
         for (var i = 0; i < tabPin.length; i++) {

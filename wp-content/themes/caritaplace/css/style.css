@@ -70,12 +70,12 @@ header>div>a>h1{
   z-index: 10;
   box-shadow:rgba(0,0,0,0.6) 0 5px 8px;
   text-align: center;
-  font-size: 280%;
-  color: white;
-  padding-top: 10px;
-  font-family: SEGOEUIL, arial;
+	font-size: 280%;
+	color: white;
+	padding-top: 10px;
+	font-family: SEGOEUIL, arial;
 }
-#panier{
+header #panier{
   float:right;
   background: #ffb600 url(images/portefeuille.png) no-repeat 21px 1px;
   width: 170px;

@@ -8,7 +8,7 @@
   <?php while (have_posts()) : the_post(); ?>
 	<div class="content clearfix">
 		<div class="clearfix">
-			<div class="element first">
+			<div class="element asso">
 				<div class="top">
 					<h2>Association <?php the_title() ?></h2>
 					<div class="logo">
@@ -23,7 +23,7 @@
 					<p>Nam ligula est, pellentesque suscipit felis volutpat, vestibulum sollicitudin sem. Cras ut sapien orci.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut viverra erat. Donec consectetur nibh nec enim tempus, sit amet fermentum odio commodo. Mauris venenatis risus malesuada tortor pulvinar volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut viverra erat. </p>
 				</div>
 			</div>
-			<div class="element second">
+			<div class="element inf">
 				<div class="top">
 					<h2>Informations</h2>
 					<span></span>
@@ -34,7 +34,7 @@
 				</div>
 			</div>
 		</div>
-			<div class="element third">
+			<div class="element donnez">
 				<div class="top">
 					<h2>Vous aussi, faites un don et aidez cette association</h2>
 					<span></span>
@@ -46,7 +46,7 @@
 					</form>
 				</div>
 			</div>
-			<div class="element fourth">
+			<div class="element aussi">
 				<div class="top">
 					<h2>Ces associations pourraient également vous plaîre :</h2>
 					<span></span>
