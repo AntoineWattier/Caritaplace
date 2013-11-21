@@ -70,12 +70,12 @@ header>div>a>h1{
   z-index: 10;
   box-shadow:rgba(0,0,0,0.6) 0 5px 8px;
   text-align: center;
-	font-size: 280%;
-	color: white;
-	padding-top: 10px;
-	font-family: SEGOEUIL, arial;
+  font-size: 280%;
+  color: white;
+  padding-top: 10px;
+  font-family: SEGOEUIL, arial;
 }
-header #panier{
+#panier{
   float:right;
   background: #ffb600 url(images/portefeuille.png) no-repeat 21px 1px;
   width: 170px;
@@ -85,13 +85,13 @@ header #panier{
   z-index: 2;
   height: 49px;
 }
-header #panier>p{
+#panier>p{
   font-size:130%;
   margin: 0;
   line-height: 15px;
   margin: 12px 0 5px 0;
 }
-header #panier>p:first-child{
+#panier>p:first-child{
   float:left;
   width: 65px;
   text-align:center;
@@ -99,7 +99,7 @@ header #panier>p:first-child{
   font-size:160%;
   margin:0;
 }
-header #panier>a{
+#panier>a{
   text-align:center;
   color:#353535;
   width: 100%;
@@ -121,7 +121,7 @@ header #panier>a{
 #map.little{
   height: 200px;
 }
-#map>#filtre{
+#filtre{
   width:295px;
   height: 100%;
   background-color:#353535;
@@ -136,7 +136,7 @@ header #panier>a{
 -webkit-box-sizing: border-box;
   z-index: 1;
 }
-#map>#filtre h2{
+#filtre h2{
 text-align:center;
 font-size:200%;
 font-family:SEGOEUIL, arial;
@@ -144,7 +144,7 @@ font-family:SEGOEUIL, arial;
 -webkit-box-sizing: border-box;
 font-weight:bold;
 }
-#map>#filtre h3{
+#filtre h3{
   text-align: right;
   font-size:150%;
   font-family:SEGOEUIL, arial;
@@ -154,7 +154,7 @@ font-weight:bold;
   padding-bottom: 5px;
   margin:10px 0;
 }
-#map>#filtre>a{
+#filtre>a{
   background:#b6b6b6;
   padding:3px;
   text-align:center;
@@ -168,11 +168,11 @@ font-weight:bold;
   margin:20px 0;
 }
 
-#filtre #accordion>form{
+#accordion>form{
   padding:0;
   margin:0;
 }
-#filtre #accordion>div>input[type="text"]{
+#accordion>div>input[type="text"]{
   background:#b6b6b6;
   padding:3px;
   text-align:center;
@@ -180,7 +180,7 @@ font-weight:bold;
   color:#353535;
   width: 220px;
 }
-#filtre #accordion>div>input[type="submit"]{
+#accordion>div>input[type="submit"]{
   height:22px;
   border-radius:3px;
   color:#353535;
@@ -189,7 +189,7 @@ font-weight:bold;
   border:none;
   float: right;
 }
-#filtre #accordion>div>input[type="checkbox"], #filtre #accordion>div>input[type="radio"]{
+#accordion>div>input[type="checkbox"], #accordion>div>input[type="radio"]{
 float: right;
 clear: both;
 height:20px;
@@ -197,7 +197,7 @@ width:20px;
 display: block;
 margin:6px 0;
 }
-#filtre #accordion>div>label{
+#accordion>div>label{
   float:right;
   color:#b6b6b6;
   font-size:140%;
@@ -277,14 +277,14 @@ display: block;
   height:100%;
   padding: 0 6px;
 }
-#panier .element .first{
+#panier .element>div:nth-child(1){
   vertical-align: middle;
 }
-#panier .element .second{
+#panier .element>div:nth-child(2){
   padding-top:0;
   vertical-align: top;
 }
-#panier .element .third>a{
+#panier .element>div:nth-child(3)>a{
   text-align:center;
   font-size:180%;
   color:white;
@@ -480,45 +480,45 @@ footer p{
 #panier>div>a.valider{
   background:#7ab343;
 }
-#informations .content .element>.top .logo>img.photo{
+#informations .element>.top .logo>img.photo{
   display: block;
   width: 100px;
   height: 100px;
   margin: 15px auto;
 }
-#informations .content .element>.top .logo>img.fond{
+#informations .element>.top .logo>img.fond{
   position: absolute;
   left: 50%;
   margin-left: -75px;
   top:35px;
 }
-#informations .content .element p{
+#informations .element p{
   font-size: 150%;
 }
-#informations .content .element .top p{
+#informations .element .top p{
   text-align:center;
   color: white;
 }
-#informations .content .element .infos{
+#informations .element .infos{
   padding:20px 10px 10px 10px;
 }
-#informations .content .element.first{
+#informations .element.asso{
   width:650px;
   margin-right: 17px;
   float:none;
   display:table-cell;
 }
-#informations .content .element.second{
+#informations .element.inf{
   width:350px;
   float:none;
   display:table-cell;
 }
-#informations .content .element.third, #informations .content .element.fourth{
+#informations .element.donnez, #informations .element.aussi{
   width: 991px;
   margin: 0 auto 25px auto;
   display: block;
 }
-#informations  .element .infos>p.adherents{
+#informations .element .infos>p.adherents{
   padding-left:70px;
   background:url(images/adherent_icon.png) no-repeat 14px center;
   margin:15px 0;
@@ -531,14 +531,14 @@ footer p{
 #informations .element .infos>p>strong{
   font-size:160%;
 }
-#informations .element.third .infos{
+#informations .donnez .infos{
   padding-top: 40px;
 }
 #panier .second .infos {
   padding: 30px 0 0 0;
   height: 90px;
 }
-#informations .element.third input[type="submit"]{
+#informations .donnez input[type="submit"]{
   margin: auto;
   display: block;
   margin-top: 20px;
@@ -546,37 +546,38 @@ footer p{
   background: #ffb600;
   color: white;
   padding: 3px 50px;
+  border: none;
 }
-#informations .element.fourth .infos{
+#informations .aussi .infos{
   padding:0;
   display:table;
   border-spacing: 0;
 }
-#informations .element.fourth .infos .otherElement{
+#informations .element.aussi .infos .otherElement{
   display:table-cell;
   width:338px;
   position: relative;
   text-decoration:none;
 }
-#informations .element.fourth .infos .otherElement .logo>img.photo{
+#informations .aussi .infos .otherElement .logo>img.photo{
   display: block;
   width: 100px;
   height: 100px;
   margin: 20px auto;
 }
-#informations .element.fourth .infos .otherElement .logo>img.fond{
+#informations .aussi .infos .otherElement .logo>img.fond{
   position: absolute;
   left: 50%;
   margin-left: -75px;
   top:11px;
 }
-#informations .element.fourth .infos .other{
+#informations .aussi .infos .other{
   padding:10px;
 }
-#informations .content .element.fourth .infos .other.green{background-color:#1fbba6;}
-#informations .content .element.fourth .infos .other.orange{background-color:#ff9600;}
-#informations .content .element.fourth .infos .other.blue{background-color:#14b9d6;}
-#informations .content .element.fourth .infos .other>h3{
+#informations .aussi .infos .other.green{background-color:#1fbba6;}
+#informations .aussi .infos .other.orange{background-color:#ff9600;}
+#informations .aussi .infos .other.blue{background-color:#14b9d6;}
+#informations .aussi .infos .other>h3{
   text-align:center;
   color:white;
   font-size:180%;
@@ -586,7 +587,7 @@ footer p{
 -moz-box-sizing: border-box;
 -webkit-box-sizing: border-box;
 }
-#informations .content .element.fourth .infos .other>p{
+#informations .aussi .infos .other>p{
   text-align:center;
   color:black;
   margin-bottom:0;
