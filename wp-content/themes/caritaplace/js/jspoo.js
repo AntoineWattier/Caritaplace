@@ -18,6 +18,24 @@ localisation.init({
             //var taille = parseInt(document.forms["test"].elements["taille"].value);
             localisation.creerCercle.call(this,2500);
         });
+        google.maps.event.addListener(markerUser, 'click', function (){
+            evt.preventDefault();
+            localisation.creerCercle.call(this,2500);
+        });
+        form.addEventListener("click", code, false);
+
+
+
+        document.getElementById('rond').addEventListener('click', function(evt){
+            evt.preventDefault();
+            //var taille = parseInt(document.forms["test"].elements["taille"].value);
+            localisation.bigTri.call(this);
+        });
+        google.maps.event.addListener(markerUser, 'click', function (){
+            evt.preventDefault();
+            localisation.bigTri.call(this);
+        });
+        form.addEventListener("click", localisation.bigTri, false);
 
     }
     ,
@@ -40,5 +58,6 @@ function code (evt) {
     return false;
 }
 
-form.addEventListener("click", code, false);
+
+
 

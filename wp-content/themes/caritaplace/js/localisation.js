@@ -14,7 +14,8 @@ var localisation={
             localized : function(){},
             nonlocalized : function(){},
     },
-    //merge des propriétés
+    
+
     init : function(options){
         this.params=$.extend(this.defaults,options);
         geocoder = new google.maps.Geocoder();
@@ -74,12 +75,10 @@ var localisation={
               }
             ]
         };
-
-
-
         map = new google.maps.Map(document.getElementById(this.params.carte),mapOptions);
         this.ajouterMarkers();
     },
+
     creerCercle : function (taille) {
         if (rond) {
             circle.setMap(null);
@@ -113,6 +112,9 @@ var localisation={
             rond = true;
         }
     },
+    bigTri : function() {
+        alert("yo");
+    },
 
     tri : function(){
         for (var i = 0; i < tabPin.length; i++) {
@@ -124,6 +126,7 @@ var localisation={
             }
         }
     },
+
     ajouterMarkers : function(){        
         downloadUrl('wp-content/themes/caritaplace/adresses.json',function(data){
             var fichierJson = eval('('+data+')');
@@ -139,6 +142,7 @@ var localisation={
         });
         this.geolocUser.call(this);
     },
+
     geolocUser : function(){
         var options = {
           enableHighAccuracy: true,
