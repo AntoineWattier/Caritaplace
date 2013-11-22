@@ -54,44 +54,42 @@ header>div{
   margin:auto;
   position: relative;
 }
-header>div>a{
+header>div>a, header>div>a:hover{
   float:left;
   position: relative;
   z-index: 4;
   left: 0;
   border-radius: 3px;
-}
-header>div>a>h1{
   margin:0;
   width:150px;
   height:150px;
   background-color:#2980b9;
   border-radius:0 0 10px 10px;
-  z-index: 10;
   box-shadow:rgba(0,0,0,0.6) 0 5px 8px;
   text-align: center;
 	font-size: 280%;
 	color: white;
 	padding-top: 10px;
 	font-family: SEGOEUIL, arial;
+  text-decoration:none;
 }
-header #panier{
+#listeDons{
   float:right;
-  background: #ffb600 url(images/portefeuille.png) no-repeat 21px 1px;
   width: 170px;
-  color:#353535;
+  color: white;
   padding:0 10px;
   position: relative;
   z-index: 2;
   height: 49px;
+  background: url(images/portefeuille.png) no-repeat 21px 1px;
 }
-#panier>p{
+#listeDons>p{
   font-size:130%;
   margin: 0;
   line-height: 15px;
   margin: 12px 0 5px 0;
 }
-#panier>p:first-child{
+#listeDons>p:first-child{
   float:left;
   width: 65px;
   text-align:center;
@@ -99,7 +97,7 @@ header #panier{
   font-size:160%;
   margin:0;
 }
-#panier>a{
+#listeDons>a{
   text-align:center;
   color:#353535;
   width: 100%;
@@ -129,12 +127,13 @@ header #panier{
   clear: both;
   position: absolute;
   right: 50px;
-  color:#b6b6b6;
+  color: white;
   padding:10px 20px;
   font-family:SEGOEUIL, arial;
 -moz-box-sizing: border-box;
 -webkit-box-sizing: border-box;
   z-index: 1;
+  top: 0;
 }
 #filtre h2{
 text-align:center;
@@ -155,7 +154,7 @@ font-weight:bold;
   margin:10px 0;
 }
 #filtre>a{
-  background:#b6b6b6;
+  background:white;
   padding:3px;
   text-align:center;
   border-radius:3px;
@@ -173,7 +172,7 @@ font-weight:bold;
   margin:0;
 }
 #accordion>div>input[type="text"]{
-  background:#b6b6b6;
+  background:white;
   padding:3px;
   text-align:center;
   border-radius:3px;
@@ -184,7 +183,7 @@ font-weight:bold;
   height:22px;
   border-radius:3px;
   color:#353535;
-  background:#b6b6b6;
+  background:white;
   font-weight: bold;
   border:none;
   float: right;
@@ -208,7 +207,7 @@ margin:6px 0;
 -webkit-box-sizing: border-box;
   line-height: 30px;
 }
-header>div>a>h1>img {
+header>div>a>img {
 width: auto;
 height: auto;
 margin: auto;

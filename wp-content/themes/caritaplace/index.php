@@ -1,6 +1,9 @@
 <?php get_header(); ?>
 <body>
 <section id="map">
+	
+	<div id="the_map">
+	</div>
 	<div id="filtre">
 		<h2>PRECISEZ VOTRE RECHERCHE</h2>
 		<a href="#" id="rond">LES ASSOCIATIONS AUTOUR DE MOI</a>
@@ -41,8 +44,6 @@
 			</div>
 		</form>
 	</div>
-	<div id="the_map">
-	</div>
 </section>
 <section id="liste">
 	<div class="content clearfix">
@@ -61,7 +62,7 @@
 				<a href="#">X</a>
 			</div>
 		</div>
-		<div class="element second col-md-6">
+		<div class="element second col-md-6 col-sm-12 col-xs-12">
 			<div class="logo">
 				<a href="detail.php">Voir la page</a>
 				<img class="fond" src="<?php echo get_stylesheet_directory_uri(); ?>/css/images/fond_photo.png" alt="nothing"/>
@@ -74,7 +75,7 @@
 				<p class="categ">Catégories: Environnement, Sport</p>
 			</div>
 		</div>
-		<div class="element second col-md-6">
+		<div class="element second col-md-6 col-sm-12 col-xs-12">
 			<div class="logo">
 				<a href="detail.php">Voir la page</a>
 				<img class="fond" src="<?php echo get_stylesheet_directory_uri(); ?>/css/images/fond_photo.png" alt="nothing"/>
@@ -87,7 +88,7 @@
 				<p class="categ">Catégories: Environnement, Sport</p>
 			</div>
 		</div>
-		<div class="element second col-md-6">
+		<div class="element second col-md-6 col-sm-12 col-xs-12">
 			<div class="logo">
 				<a href="detail.php">Voir la page</a>
 				<img class="fond" src="<?php echo get_stylesheet_directory_uri(); ?>/css/images/fond_photo.png" alt="nothing"/>
