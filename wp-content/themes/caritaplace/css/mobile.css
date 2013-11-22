@@ -1,0 +1,138 @@
+@media (min-width : 320px) and (max-width : 700px) {
+  body, .content{
+    width:100%;
+  }
+  #liste{
+    padding:10px;
+  }
+  header{
+    position:relative;
+    height:auto;
+  }
+  header>span {
+    display:none;
+  }
+  header>div>a, header>div>a:hover{
+    width:100%;
+    border-radius:0;
+    float:none;
+    width: 100%;
+    display: block;
+    height:auto;
+    padding:10px 0;
+  }
+  header>div>a>img {
+    width:80px;
+  }
+  header>div {
+    width:100%;
+  }
+  #map{
+    margin-top: 0;
+    height: auto;
+  }
+  #listeDons{
+    float:none;
+    margin:auto;
+    padding: 15px 10px;
+    background: url(images/portefeuille.png) no-repeat 21px 4px;
+  }
+  #listeDons>p {
+    margin:0;
+  }
+  #listeDons>p:first-child {
+    line-height:38px;
+  }
+  #filtre {
+    position: relative;
+    display: block;
+    width: 100%;
+    float: none;
+    right: 0;
+  }
+  #the_map {
+    height: 250px;
+  }
+  #accordion>div>input[type="text"] {
+    width: 100%;
+    border: none;
+    height: 22px;
+  }
+  #accordion>div>input[type="submit"] {
+    position: absolute;
+    top: 10px;
+    right: 0;
+  }
+  #ui-accordion-accordion-panel-0{
+    padding-right: 40px;
+    position: relative;
+  }
+  #liste .content {
+    padding-top: 0;
+  }
+  #liste .filterlist>div {
+    display: block;
+    margin: 10px 0;
+    padding-left: 35px;
+  }
+  #liste .element{
+    height:auto;
+    background:white;
+    padding: 0;
+    margin: 20px auto;
+    position: relative;
+  }
+  #liste .element .infos {
+    padding:0;
+    float:none;
+    display:block;
+    padding: 5px 0;
+  }
+  #liste .element .infos>*{
+    margin:5px 0 !important;
+  }
+  #liste .element .logo{
+    display: block;
+    width: 100%;
+    float:none;
+    right: 0;
+    position: initial;
+  }
+  #liste .element .logo>a{
+    color:transparent;
+    background:none;
+    position: absolute;
+    top: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+  }
+  #liste h2 {
+    font-size:250%;
+    margin-bottom:0;
+  }
+  #liste .element .logo:hover{
+    right: 0;
+  }
+  #liste .element .logo .fond{
+    width: 90px;
+    top: 0;
+    left: 50%;
+    margin-left: -45px;
+  }
+  #liste .element .logo .photo{
+    float:none;
+    margin: auto;
+    width: 61px;
+    padding: 6px 0;
+    height: auto;
+  }
+  #liste .filterlist>div {
+    height:30px;
+    line-height: 30px;
+  }
+  #liste .filterlist>div>p {
+    font-size:140%;
+  }
+}
