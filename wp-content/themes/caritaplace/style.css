@@ -12,5 +12,7 @@ Author URI: http://hetic.net
 @import url(css/jquery-ui.css);
 @import url(css/bootstrap.css);
 @import url(css/style.css);
-
+@import url(rangeSlider/css/ionrangeSlider.css);
+@import url(rangeSlider/css/ionrangeSliderskinSimple.css);
+@import url(css/mobile.css);
 
