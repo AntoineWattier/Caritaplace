@@ -54,8 +54,8 @@
 				<div class="infos">
 					<a href="" class="otherElement">
 						<div class="logo">
-							<img class="fond" src="css/images/cercle.png" alt="nothing"/>
-							<img class="photo" src="images/logo.jpg" alt="logo de l'association"/>
+							<img class="fond" src="<?php echo get_stylesheet_directory_uri(); ?>/css/images/cercle.png" alt="nothing"/>
+							<img class="photo" src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.jpg" alt="logo de l'association"/>
 							<span></span>
 						</div>
 						<div class="other blue">
@@ -65,8 +65,8 @@
 					</a>
 					<a href="" class="otherElement">
 						<div class="logo">
-							<img class="fond" src="css/images/cercle.png" alt="nothing"/>
-							<img class="photo" src="images/logo.jpg" alt="logo de l'association"/>
+							<img class="fond" src="<?php echo get_stylesheet_directory_uri(); ?>/css/images/cercle.png" alt="nothing"/>
+							<img class="photo" src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.jpg" alt="logo de l'association"/>
 							<span></span>
 						</div>
 						<div class="other orange">
@@ -76,8 +76,8 @@
 					</a>
 					<a href="" class="otherElement">
 						<div class="logo">
-							<img class="fond" src="css/images/cercle.png" alt="nothing"/>
-							<img class="photo" src="images/logo.jpg" alt="logo de l'association"/>
+							<img class="fond" src="<?php echo get_stylesheet_directory_uri(); ?>/css/images/cercle.png" alt="nothing"/>
+							<img class="photo" src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.jpg" alt="logo de l'association"/>
 							<span></span>
 						</div>
 						<div class="other green">

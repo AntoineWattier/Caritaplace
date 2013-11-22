@@ -135,4 +135,44 @@
   #liste .filterlist>div>p {
     font-size:140%;
   }
+  #informations .element{
+    width:100% !important;
+    display: block !important;
+    margin:0 !important;
+  }
+  #informations .content {
+    display: block;
+    padding: 8px;
+  }
+  #informations .content>div{
+    display:block;
+  }
+  #informations .content>.element{
+    margin: 20px 0 !important;
+  }
+  #informations .asso{
+    margin-bottom: 20px !important;
+  }
+   #informations .content>.clearfix:after, #informations .content>.clearfix:before {    
+    content: initial !important;
+  }
+  form>.irs {
+    width: 95%;
+  }
+  #map.little {
+    height: 150px;
+  }
+  #map.little>div {
+    height: 100%;
+  }
+  #informations .element.aussi .infos .otherElement {
+    width:100%;
+    display: block;
+  }
+  #informations .aussi .infos {
+    width: 100%;
+  }
+  #informations .aussi .infos .otherElement .logo>img.fond {
+    top: -9px;
+  }
 }
