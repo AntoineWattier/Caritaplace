@@ -2,7 +2,7 @@
 /*
 Plugin Name: JSON on Publish
 Plugin URI: http://yourdomain.com/
-Description: Used to refresh JSON from all posts when one is published.
+Description: Used to refresh JSON file from all posts when one is published.
 Version: 1.0
 Author: Antoine Wattier
 Author URI: http://yourdomain.com
@@ -46,6 +46,7 @@ function geocode($street_address,$city,$state){
 function json_post($post_id) {
     $post = get_post($post_id);
     $fields = get_fields($post_id);
+    $content = array();
 
     //On récupère les lat lng en fonction de l'adresse
     $coords = geocode(get_field('adresse_de_lassociation',$post_id),get_field('ville',$post_id),"FRANCE");
@@ -57,11 +58,26 @@ function json_post($post_id) {
     update_field('field_528e0e5207a5a', $coords['longitude'], $post_id);
 
 
-    $content .= json_encode($fields);
+    //array_push($content,$fields);
 
-    $content .= json_encode(get_posts( array('post_type'=> 'associations')));
+   
 
-    $fp = fopen(get_stylesheet_directory()."/myText.json","wb");
+    $tmp = array();
+    foreach(get_posts( array('post_type'=> 'associations')) as $key=>$value){
+        $id=$value->ID;
+
+        $tmp = get_fields($id);
+        $tmp['nom']=get_the_title($id);
+        $tmp['permalink']=get_permalink($id);
+        $tmp['categories']=wp_get_post_terms($id,'categories');
+        $tmp['action']=wp_get_post_terms($id,'action_en_cours');
+
+        array_push($content, $tmp);
+    }
+
+    $content = json_encode($content);
+
+    $fp = fopen(get_stylesheet_directory()."/associations.json","wb");
     fwrite($fp,$content);
     fclose($fp);
     //wp_mail( 'wattier.antoine@gmail.com',  $post->post_title, $content);

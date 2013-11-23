@@ -13,31 +13,29 @@ localisation.init({
         markerUser.setMap(map);
 
         //remplacer par activation du rayon de recherche
-        $( "#rond" ).on('click', function(evt){
+        document.getElementById('rond').addEventListener('click', function(evt){
             evt.preventDefault();
             //var taille = parseInt(document.forms["test"].elements["taille"].value);
-            localisation.creerCercle(2500);
+            localisation.creerCercle.call(this,2500);
         });
         google.maps.event.addListener(markerUser, 'click', function (){
             evt.preventDefault();
-            localisation.creerCercle(2500);
+            localisation.creerCercle.call(this,2500);
         });
-        form.on("click", code, false);
+        form.addEventListener("click", code, false);
 
 
-        //-------------------EXPERIMENTATION-------------------------------
-        // document.getElementById('rond').addEventListener('click', function(evt){
-        //     evt.preventDefault();
-        //     //var taille = parseInt(document.forms["test"].elements["taille"].value);
-        //     localisation.bigTri.call(this);
-        // });
-        // google.maps.event.addListener(markerUser, 'click', function (){
-        //     evt.preventDefault();
-        //     localisation.bigTri.call(this);
-        // });
-        // form.addEventListener("click", localisation.bigTri, false);
-        //-------------------FIN EXPERIMENTATION-------------------------------
 
+        document.getElementById('rond').addEventListener('click', function(evt){
+            evt.preventDefault();
+            //var taille = parseInt(document.forms["test"].elements["taille"].value);
+            localisation.bigTri.call(this);
+        });
+        google.maps.event.addListener(markerUser, 'click', function (){
+            evt.preventDefault();
+            localisation.bigTri.call(this);
+        });
+        form.addEventListener("click", localisation.bigTri, false);
 
     }
     ,
@@ -45,7 +43,7 @@ localisation.init({
         console.warn('Impossible d\'effectuer la géolocalisation');
     }
 });
-var form = $('submit');
+var form = document.getElementsByName('submit')[0];
 
 function code (evt) {
     evt.preventDefault();

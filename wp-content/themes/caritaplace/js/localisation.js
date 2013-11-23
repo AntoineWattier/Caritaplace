@@ -13,7 +13,6 @@ var localisation={
             carte : '#carte',
             localized : function(){},
             nonlocalized : function(){},
-            tri : function(){},            
     },
     
 
@@ -113,12 +112,9 @@ var localisation={
             rond = true;
         }
     },
-    //-------------------EXPERIMENTATION-------------------------------
-
-    // bigTri : function() {
-    //     alert("yo");
-    // },
-    //-------------------FIN EXPERIMENTATION-------------------------------
+    bigTri : function() {
+        alert("yo");
+    },
 
     tri : function(){
         for (var i = 0; i < tabPin.length; i++) {
@@ -132,15 +128,16 @@ var localisation={
     },
 
     ajouterMarkers : function(){        
-        downloadUrl('wp-content/themes/caritaplace/adresses.json',function(data){
+
+        downloadUrl('wp-content/themes/caritaplace/associations.json',function(data){
             var fichierJson = eval('('+data+')');
-            longueurJson = fichierJson.assos.length;
+            longueurJson = fichierJson.length;
             for (var i = 0; i < longueurJson; i++) 
             {
-                if(fichierJson.assos[i].asso[0].adresse)
+                if(fichierJson[i].adresse_de_lassociation)
                 {
-                    var content = fichierJson.assos[i].asso[1].nom
-                    localisation.geocodeAdress(fichierJson.assos[i].asso[0].adresse,i,content);
+                    var content = fichierJson[i];
+                    localisation.geocodeAddress(fichierJson[i].adresse_de_lassociation,i,content);
                 }
             }
         });
@@ -159,7 +156,7 @@ var localisation={
     },
 
 
-    geocodeAdress: function(sAddress,y,content){
+    geocodeAddress: function(sAddress,y,data){
         geocoder.geocode( { 'address': sAddress}, function(results, status) { 
             if (status == google.maps.GeocoderStatus.OK) {
                 var coordonnees = results[0].geometry.location;
@@ -168,6 +165,8 @@ var localisation={
                     position: coordonnees,
                     icon: imgMarqueur
                 });
+
+                var content = '<a href="'+data.permalink+'">'+data.nom+"</a>"+"<br>";
                 var infoBulle = new google.maps.InfoWindow({
                   content: content
                 })
