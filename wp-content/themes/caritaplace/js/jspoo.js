@@ -38,8 +38,7 @@ localisation.init({
         //-------------------FIN EXPERIMENTATION-------------------------------
 
 
-    }
-    ,
+    },
     nonlocalized : function(pos){
         console.warn('Impossible d\'effectuer la géolocalisation');
     }
@@ -48,18 +47,51 @@ localisation.init({
 
 $('input[name="ok"]').on("click", function(evt) {
     evt.preventDefault();
-    var nom = document.getElementsByName('name')[0].value.toUpperCase();
-    console.log('nom :',nom);
+    var nom = $('input[name="name"]').val().toUpperCase();
     for (var i = 0; i < tabPin.length; i++) {
         tabPin[i].setVisible(true);
         var nomJson = tabPin[i].get('nom').toUpperCase();
-        console.log(nomJson);
         if (nomJson.indexOf(nom)==-1) {
             tabPin[i].setVisible(false);
         }
     }
-    return false;
 });
 
+$('input[name="categories"]').on("click", function(evt){
+    //Tableau des checkbox catégories cochées
+    var checked = $('input[name="categories"]:checked');
+
+    //Création du tableau des catégories
+    var catChecked = new Array();
+    checked.each(function(index,el){
+        catChecked.push(el.value);
+    })
+  
+    for (var i = 0; i < tabPin.length; i++) {
+        tabPin[i].setVisible(true);
+
+        var catPin = tabPin[i].get('categories');
+
+        for (var j = 0; j < catChecked.length; j++) {
+            if ($.inArray(catChecked[j],catPin)==-1) {
+                tabPin[i].setVisible(false);
+            }
+        }           
+    }
+});
+
+$('input[name="action"]').on("click", function(evt) {
+
+    var action =$('input[name="action"]:checked').val().toUpperCase();
+    for (var i = 0; i < tabPin.length; i++) {
+        tabPin[i].setVisible(true);
+        var actionJson = tabPin[i].get('action_en_cours').toUpperCase();
+        console.log(actionJson);
+        console.log(action);
+        if (actionJson != action) {
+            tabPin[i].setVisible(false);
+        }
+    }
+});
 
 

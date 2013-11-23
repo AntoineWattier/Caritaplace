@@ -167,14 +167,24 @@ var localisation={
                 });
 
                 var content = '<a href="'+data.permalink+'">'+data.nom+"</a>"+"<br>";
+                if(data.logo)
+                    content += '<img src="'+data.logo+'">';
 
                 var infoBulle = new google.maps.InfoWindow({
                   content: content
                 })
 
-                
+
                 //On stocke les infos pour quelles soient manipulables.
                 tabPin[y].set('nom',data.nom);
+                tabPin[y].set('action_en_cours',data.action_en_cours[0].slug);
+
+
+                var cats = new Array();
+                for (var i = 0; i < data.categories.length; i++) {
+                    cats.push(data.categories[i].slug);
+                }
+                tabPin[y].set('categories',cats);
                 // Stockage infowindow pour open sur click
                 tabPin[y]._infowindow = infoBulle;
                 // ajout l'action sur onclick

@@ -22,7 +22,7 @@
 				        ));
 
 				        foreach ($categories as $categorie) : ?>     
-				              <input type="checkbox" name="mode_paiement" value="<?php echo $categorie->term_id ?>" id="<?php echo $categorie->slug ?>" />
+				              <input type="checkbox" name="categories" value="<?php echo $categorie->slug ?>" id="<?php echo $categorie->slug ?>" />
 				              <label for="<?php echo $categorie->slug ?>" class="wrap" ><?php echo $categorie->name ?>	</label>			     
 				        <?php endforeach; ?>
 				  </div>
@@ -34,7 +34,7 @@
 				        ));
 
 				        foreach ($actions as $action) : ?>     
-				              <input type="radio" name="action" value="<?php echo $action->term_id ?>" id="<?php echo $action->slug ?>" />
+				              <input type="radio" name="action" value="<?php echo $action->slug ?>" id="<?php echo $action->slug ?>" />
 				              <label for="<?php echo $action->slug ?>" class="wrap" ><?php echo $action->name ?>	</label>			     
 				        <?php endforeach; ?>
 				</div>
