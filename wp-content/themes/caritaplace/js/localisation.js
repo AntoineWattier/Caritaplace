@@ -167,9 +167,14 @@ var localisation={
                 });
 
                 var content = '<a href="'+data.permalink+'">'+data.nom+"</a>"+"<br>";
+
                 var infoBulle = new google.maps.InfoWindow({
                   content: content
                 })
+
+                
+                //On stocke les infos pour quelles soient manipulables.
+                tabPin[y].set('nom',data.nom);
                 // Stockage infowindow pour open sur click
                 tabPin[y]._infowindow = infoBulle;
                 // ajout l'action sur onclick

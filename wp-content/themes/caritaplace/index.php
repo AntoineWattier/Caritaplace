@@ -7,14 +7,11 @@
 	<div id="filtre">
 		<h2>PRECISEZ VOTRE RECHERCHE</h2>
 		<a href="#" id="rond">LES ASSOCIATIONS AUTOUR DE MOI</a>
-		<form action="#">
 			<div id="accordion">
 				  <h3>Nom</h3>
 				  <div>
-				  	<form>
-				  		<input type="text" name="name" >
-						<input type="submit" name="submit" VALUE="OK">
-				  	</form>
+			  		<input type="text" name="name" >
+					<input type="button" name="ok" value="OK">
 				  </div>
 				  <h3>Catégories</h3>
 				  <div class="clearfix">
@@ -42,7 +39,7 @@
 				        <?php endforeach; ?>
 				</div>
 			</div>
-		</form>
+		<input type="button" name="reset" VALUE="RESET">
 	</div>
 </section>
 <section id="liste">

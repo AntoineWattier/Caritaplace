@@ -18,11 +18,10 @@ localisation.init({
             //var taille = parseInt(document.forms["test"].elements["taille"].value);
             localisation.creerCercle(2500);
         });
-        google.maps.event.addListener(markerUser, 'click', function (){
+        google.maps.event.addListener(markerUser, 'click', function (evt){
             evt.preventDefault();
             localisation.creerCercle(2500);
         });
-        form.on("click", code, false);
 
 
         //-------------------EXPERIMENTATION-------------------------------
@@ -45,20 +44,22 @@ localisation.init({
         console.warn('Impossible d\'effectuer la géolocalisation');
     }
 });
-var form = $('submit');
 
-function code (evt) {
+
+$('input[name="ok"]').on("click", function(evt) {
     evt.preventDefault();
     var nom = document.getElementsByName('name')[0].value.toUpperCase();
-
+    console.log('nom :',nom);
     for (var i = 0; i < tabPin.length; i++) {
-        var nomJson = tabPin[i]._infowindow.content.toUpperCase();
+        tabPin[i].setVisible(true);
+        var nomJson = tabPin[i].get('nom').toUpperCase();
+        console.log(nomJson);
         if (nomJson.indexOf(nom)==-1) {
             tabPin[i].setVisible(false);
         }
     }
     return false;
-}
+});
 
 
 
