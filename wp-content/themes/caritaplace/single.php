@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+
 <section id="map" class="little">
 	<div id="the_map">
 	</div>
@@ -40,10 +41,29 @@
 					<span></span>
 				</div>
 				<div class="infos">
-					<form action="#">
-						<input type="text" class="giveMonney" name="rangeName" value="1;100"></input>
-						<input type="submit" value="DONNER"></input>
-					</form>
+					<input type="text" class="giveMonney" name="rangeName" value="1;100"></input>
+					<input type="submit" value="DONNER"></input>
+					
+					<script id="paypal" src="<?php echo get_stylesheet_directory_uri(); ?>/js/paypal-button-minicart.min.js?merchant=wattier.antoine@gmail.com" 
+					    data-button="cart" 
+					    data-name="<?php the_title() ?>" 
+					    data-amount="5" 
+					    data-currency="EUR" 
+					    data-locale="fr_FR"
+					    data-callback="http://antoine-wattier.fr/wordpress_hetic/after_payement"
+					></script>
+					<script type="text/javascript">
+					PAYPAL.apps.MiniCart.render({
+
+						//Ne marche pas correctement..
+					    strings:{
+					    button:"J\'ai fini",
+					    subtotal:"TEST: ",
+					    discount:"Discount: ",
+					    shipping:"does not include shipping & tax",
+					    processing:"En cours..."}
+					});
+					</script>
 				</div>
 			</div>
 			<div class="element aussi">
