@@ -14,7 +14,7 @@
     background: linear-gradient(to bottom,  rgba(226,226,226,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#ffffff',GradientType=0 ); /* IE6-8 */
   }
-  #liste{
+  #liste, #confirm, #social{
     padding:10px;
   }
   header{
@@ -42,6 +42,7 @@
   #map{
     margin-top: 0;
     height: auto;
+    padding-top: 0;
   }
   #listeDons{
     float:none;
@@ -187,4 +188,20 @@
   #informations .aussi .infos .otherElement .logo>img.fond {
     top: -9px;
   }
+  #accordion>div>input[type="button"] {
+    position: absolute;
+    top: 9px;
+    right: 0;
+   }
+   #social>input, #social>#custom-tweet-button, #confirm a {
+    width: 100%;
+   }
+   #liste .element {
+    border:none;
+   }
+   div#PPMiniCart form {
+    left: 0;
+    width: 100% !important;
+    border-radius:0;
+   }
 }

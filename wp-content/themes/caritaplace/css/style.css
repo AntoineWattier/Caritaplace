@@ -9,17 +9,24 @@
 .slog{
   font-style:italic;
 }
-#map{
-  background-color: #0A4140;
-}
 
 /* ----------------- FIN ------------------ */
+html{
+  height: 100%;
+}
 body{
   font-size: .9em;
   font-family:SEGOEUIL, arial;
--moz-box-sizing: border-box;
+box-sizing:border-box; -moz-box-sizing: border-box;
 -webkit-box-sizing: border-box;
-  background: rgb(132,132,132); /* Old browsers */
+  display: block;
+  height: 100%;
+}
+.superglobale{
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 60px;
+   background: rgb(132,132,132); /* Old browsers */
   /* IE9 SVG, needs conditional override of 'filter' to 'none' */
   background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIxJSIgc3RvcC1jb2xvcj0iIzg0ODQ4NCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMGYwZjAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
   background: -moz-linear-gradient(top,  rgba(132,132,132,1) 1%, rgba(240,240,240,1) 100%); /* FF3.6+ */
@@ -29,13 +36,11 @@ body{
   background: -ms-linear-gradient(top,  rgba(132,132,132,1) 1%,rgba(240,240,240,1) 100%); /* IE10+ */
   background: linear-gradient(to bottom,  rgba(132,132,132,1) 1%,rgba(240,240,240,1) 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#848484', endColorstr='#f0f0f0',GradientType=0 ); /* IE6-8 */
-
 }
 header{
   width:100%;
   background-color:#353535;
   height:54px;
-  border-bottom: 1px solid grey;
   position: absolute;
   top: 0;
   z-index: 2;
@@ -59,7 +64,6 @@ header>div>a, header>div>a:hover{
   position: relative;
   z-index: 4;
   left: 0;
-  border-radius: 3px;
   margin:0;
   width:150px;
   height:150px;
@@ -82,6 +86,7 @@ header>div>a, header>div>a:hover{
   z-index: 2;
   height: 49px;
   background: url(images/portefeuille.png) no-repeat 21px 1px;
+  display: none;
 }
 #listeDons>p{
   font-size:130%;
@@ -109,15 +114,15 @@ header>div>a, header>div>a:hover{
 }
 #map{
   width: 100%;
-  height: 400px;
+  height: 600px;
   position: relative;
-  margin-top: 54px;
+  padding-top: 54px;
 }
 #the_map{
   height:100%;
 }
 #map.little{
-  height: 200px;
+  height: 250px;
 }
 #filtre{
   width:295px;
@@ -130,7 +135,7 @@ header>div>a, header>div>a:hover{
   color: white;
   padding:10px 20px;
   font-family:SEGOEUIL, arial;
--moz-box-sizing: border-box;
+box-sizing:border-box; -moz-box-sizing: border-box;
 -webkit-box-sizing: border-box;
   z-index: 1;
   top: 0;
@@ -139,7 +144,7 @@ header>div>a, header>div>a:hover{
 text-align:center;
 font-size:200%;
 font-family:SEGOEUIL, arial;
--moz-box-sizing: border-box;
+box-sizing:border-box; -moz-box-sizing: border-box;
 -webkit-box-sizing: border-box;
 font-weight:bold;
 }
@@ -147,7 +152,7 @@ font-weight:bold;
   text-align: right;
   font-size:150%;
   font-family:SEGOEUIL, arial;
--moz-box-sizing: border-box;
+box-sizing:border-box; -moz-box-sizing: border-box;
 -webkit-box-sizing: border-box;
   border-bottom:2px solid #b6b6b6;
   padding-bottom: 5px;
@@ -157,7 +162,6 @@ font-weight:bold;
   background:white;
   padding:3px;
   text-align:center;
-  border-radius:3px;
   color:#353535;
   width: 100%;
   display: block;
@@ -173,13 +177,14 @@ font-weight:bold;
 }
 #accordion>div>input[type="text"]{
   background:white;
-  padding:3px;
-  text-align:center;
+  padding:3px; 
   border-radius:3px;
   color:#353535;
   width: 220px;
+  border: none;
+  height: 22px;
 }
-#accordion>div>input[type="submit"]{
+#accordion>div>input[type="button"]{
   height:22px;
   border-radius:3px;
   color:#353535;
@@ -188,13 +193,21 @@ font-weight:bold;
   border:none;
   float: right;
 }
+#filtre>input[type="button"]{
+  text-align: center;
+  background: none;
+  color:white;
+  text-decoration:underline;
+  border:none;
+  width: 100%;
+  display: block;
+  font-size:160%;
+}
 #accordion>div>input[type="checkbox"], #accordion>div>input[type="radio"]{
 float: right;
 clear: both;
-height:20px;
-width:20px;
 display: block;
-margin:6px 0;
+margin:8px 0;
 }
 #accordion>div>label{
   float:right;
@@ -203,7 +216,7 @@ margin:6px 0;
   font-weight:normal;
   margin: 0 10px;
   font-family:SEGOEUIL, arial;
--moz-box-sizing: border-box;
+box-sizing:border-box; -moz-box-sizing: border-box;
 -webkit-box-sizing: border-box;
   line-height: 30px;
 }
@@ -216,13 +229,13 @@ display: block;
 .ui-accordion-header>span{
   background-position: center center;
 }
-#liste, #informations, #panier{
+#liste, #informations, #panier, #confirm{
   background:url(images/separateur_couleur.jpg) repeat-x top center;
 }
 #liste h2{
   text-align:center;
   font-family:SEGOEUIL, arial;
--moz-box-sizing: border-box;
+box-sizing:border-box; -moz-box-sizing: border-box;
 -webkit-box-sizing: border-box;
   color:#2980b9;
 }
@@ -244,7 +257,7 @@ display: block;
 }
 #liste .filterlist>div>p{
   font-family:SEGOEUIL, arial;
--moz-box-sizing: border-box;
+box-sizing:border-box; -moz-box-sizing: border-box;
 -webkit-box-sizing: border-box;
   color: #b6b6b6;
   padding-right:35px;
@@ -268,6 +281,11 @@ display: block;
   height:130px;
   margin:30px auto;
   position:relative;
+}
+#liste .element{
+  padding:0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
 }
 #panier .element>div{
   overflow:hidden;
@@ -311,7 +329,7 @@ display: block;
   transition: all 0.6s ease-in-out;
 }
 #liste .element .logo{
-  right:360px;
+  right: 350px;
 }
 #panier .element .logo{
   right:330px;
@@ -322,7 +340,7 @@ display: block;
   padding: 20px;
   color:white;
   font-family:SEGOEUIL, arial;
--moz-box-sizing: border-box;
+box-sizing:border-box; -moz-box-sizing: border-box;
 -webkit-box-sizing: border-box;
   font-size:130%;
   height:100%;
@@ -388,7 +406,7 @@ margin-right: 25px;
 #liste .element .infos h3, #panier .element .infos h3{
   text-align:center;
   font-family:SEGOEUIL, arial;
--moz-box-sizing: border-box;
+box-sizing:border-box; -moz-box-sizing: border-box;
 -webkit-box-sizing: border-box;
   color:#333333;
   margin-top:25px;
@@ -408,11 +426,14 @@ margin-right: 25px;
 footer{
   background:#353535;
   height:40px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 footer p{
   text-align:center;
   font-family:SEGOEUIL, arial;
--moz-box-sizing: border-box;
+box-sizing:border-box; -moz-box-sizing: border-box;
 -webkit-box-sizing: border-box;
   color:#b6b6b6;
   font-size:130%;
@@ -444,7 +465,7 @@ footer p{
 #informations .element>.top h3, #informations .element>.top h2, #panier .element .top h3{
   text-align:center;
   font-family:SEGOEUIL, arial;
--moz-box-sizing: border-box;
+box-sizing:border-box; -moz-box-sizing: border-box;
 -webkit-box-sizing: border-box;
   color:white ;
   font-weight: bold;
@@ -454,7 +475,7 @@ footer p{
 #panier h2{
   text-align:center;
   font-family:SEGOEUIL, arial;
--moz-box-sizing: border-box;
+box-sizing:border-box; -moz-box-sizing: border-box;
 -webkit-box-sizing: border-box;
   color:white ;
   font-size: 250%;
@@ -465,7 +486,7 @@ footer p{
   width:300px;
   text-align:center;
   font-family:SEGOEUIL, arial;
--moz-box-sizing: border-box;
+box-sizing:border-box; box-sizing:border-box; -moz-box-sizing: border-box;
 -webkit-box-sizing: border-box;
   color:white ;
   margin:10px auto 0 auto;
@@ -537,16 +558,6 @@ footer p{
   padding: 30px 0 0 0;
   height: 90px;
 }
-#informations .donnez input[type="submit"]{
-  margin: auto;
-  display: block;
-  margin-top: 20px;
-  font-size: 150%;
-  background: #ffb600;
-  color: white;
-  padding: 3px 50px;
-  border: none;
-}
 #informations .aussi .infos{
   padding:0;
   display:table;
@@ -583,11 +594,129 @@ footer p{
   font-weight:normal;
   margin-top:0;
   font-family:SEGOEUIL, arial;
--moz-box-sizing: border-box;
+box-sizing:border-box; -moz-box-sizing: border-box;
 -webkit-box-sizing: border-box;
 }
 #informations .aussi .infos .other>p{
   text-align:center;
   color:black;
   margin-bottom:0;
+}
+#confirm h1{
+  text-align: center;
+  font-family: SEGOEUIL, arial;
+  color: #333333;
+  font-weight: bold;
+  font-size: 200%;
+  margin: 5px 0;
+}
+#confirm a{
+  margin: auto;
+  display: block;
+  margin-top: 20px;
+  font-size: 150%;
+  background: #ffb600;
+  color: white;
+  padding: 3px 50px;
+  border: none;
+  width: 250px;
+  text-align: center;
+  text-decoration: none;
+}
+form.paypal-button button {
+  margin: auto;
+  display: block;
+  margin-top: 20px;
+  font-size: 150%;
+  background: #ffb600;
+  color: white;
+  padding: 3px 50px;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-style: initial;
+  border-radius:0;
+  font-family: SEGOEUIL, arial;
+}
+form.paypal-button button:before, form.paypal-button button:after {
+  background:none;
+}
+div#PPMiniCart form {
+  z-index:2;
+  background: #ffb600 url(images/mesdons.png) no-repeat center 2px;
+  right: 50%;
+  margin-right: -510px;
+  border:none;
+  border-radius: 0 0 10px 10px;
+  box-shadow: rgba(0,0,0,0.6) 0 5px 8px;
+}
+div#PPMiniCart form, div#PPMiniCart li a {
+  color: white;
+  font-family: SEGOEUIL, arial;
+}
+div#PPMiniCart p input {
+  font-family: SEGOEUIL, arial;
+  border:none;
+  background:white;
+  font-size:120%;
+  margin: 4px 0;
+  color: #ffb600;
+}
+div#PPMiniCart>form>p>span {
+  line-height:30px;
+}
+div#PPMiniCart li .quantity {
+  border-radius: 3px;
+  color: #353535;
+  padding:0 5px;
+  width: 35px
+}
+div#PPMiniCart ul{
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+div#PPMiniCart li .remove {
+  top:11px;
+}
+.gm-style .gm-style-iw{
+  height: auto !important;
+  position: relative !important;
+  top:7px !important;
+}
+.gm-style .gm-style-iw>div>a{
+  color:#353535;
+  font-family: SEGOEUIL, arial;
+  font-weight: bold;
+}
+.gm-style .gm-style-iw>div>p{
+  color:#353535;
+  font-family: SEGOEUIL, arial;
+  margin: 0;
+}
+#social>input, #social>#custom-tweet-button{
+  margin: auto;
+  display: block;
+  margin-top: 20px;
+  font-size: 150%;
+  background: #ffb600;
+  color: white;
+  padding: 3px 50px;
+  border: none;
+  width: 250px;
+  text-align: center;
+  text-decoration: none;
+  border:none;
+}
+#social>input{
+  background: #294b91 url('images/facebook.png') 15px center no-repeat;
+}
+#social>#custom-tweet-button{
+  background: #359bed url('images/twitter.png') 15px center no-repeat;
+}
+#social>#custom-tweet-button>a{
+  color:white;
+  border:none;
+}
+#social>#custom-tweet-button>a:hover{
+  text-decoration:none;
 }

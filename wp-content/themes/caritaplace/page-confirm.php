@@ -53,16 +53,10 @@
 			<!-- /Facebook -->
 			<!-- Twitter -->
 			<style type="text/css" media="screen">
-			  #custom-tweet-button a {
-			    display: block;
-			    padding: 2px 5px 2px 20px;
-			    background: url('https://twitter.com/favicons/favicon.ico') 1px center no-repeat;
-			    border: 1px solid #ccc;
-			  }
 			</style>
 			 
 			<div id="custom-tweet-button">
-			  <a href="https://twitter.com/share?url=<?php echo site_url() ?>" target="_blank">Tweet</a>
+			  <a href="https://twitter.com/share?url=<?php echo site_url() ?>&text=Je%20viens%20de%20faire%20un%20don%20%C3%A0%20des%20associations%2C%20toi%20aussi%20fais%20un%20geste." target="_blank">Tweet</a>
 			</div>
 			<!-- /Twitter -->
 		</section>
