@@ -166,9 +166,11 @@ var localisation={
                     icon: imgMarqueur
                 });
 
-                var content = '<a href="'+data.permalink+'">'+data.nom+"</a>"+"<br>";
-                if(data.logo)
-                    content += '<img src="'+data.logo+'">';
+               var content = '<a href="'+data.permalink+'">'+data.nom+"</a>";
+                if(data.categories)
+                    for (var x = 0; x < data.categories.length; x++) {
+                        content += '<p>'+data.categories[x].slug+'</p>';
+                    }
 
                 var infoBulle = new google.maps.InfoWindow({
                   content: content
