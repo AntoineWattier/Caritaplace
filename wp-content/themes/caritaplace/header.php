@@ -7,16 +7,15 @@
 
 	<title><?php wp_title(); ?></title>
 	<meta charset="<?php bloginfo('charset'); ?>">
-	<!-- <meta name="description" content="<?php bloginfo( 'description' ); ?>"> -->
 	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<?php wp_head(); ?>
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
 	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
-	<?php wp_head(); ?>
 </head>
 <header>
 	<span></span>
 	<div class="clearfix">
-		<a href="./"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/caritaplace.png" alt="logo"/>CaritaPlace</a>
+		<a href="<?php echo site_url() ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/caritaplace.png" alt="logo"/>CaritaPlace</a>
 
 		<div id="listeDons">
 				<p><strong>20€</strong></p>

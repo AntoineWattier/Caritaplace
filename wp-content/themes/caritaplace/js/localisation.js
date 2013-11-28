@@ -5,7 +5,7 @@ var markerUser;
 var rond = false;
 var circle;
 var boundcircle;
-var imgMarqueur = new google.maps.MarkerImage('wp-content/themes/caritaplace/images/pinAsso.png', new google.maps.Size(24, 34), new google.maps.Point(0,0), new google.maps.Point(12, 34));        
+var imgMarqueur = new google.maps.MarkerImage('http://antoine-wattier.fr/wordpress_hetic/wp-content/themes/caritaplace/images/pinAsso.png', new google.maps.Size(24, 34), new google.maps.Point(0,0), new google.maps.Point(12, 34));        
 
 var localisation={
     
@@ -79,57 +79,99 @@ var localisation={
         this.ajouterMarkers();
     },
 
-    creerCercle : function (taille) {
-        if (rond) {
-            circle.setMap(null);
-            for (var i = 0; i < tabPin.length; i++) {
-                tabPin[i].setVisible(true);
-            } 
-            rond = false;
-        }else{
-            for (var i = 0; i < tabPin.length; i++) {
-                tabPin[i].setVisible(true);
-            } 
-            var rayon = taille;
-            circle = new google.maps.Circle({
-                map: map,
-                clickable: false,
-                // metre
-                radius: rayon,
-                fillColor: '#fff',
-                fillOpacity: .6,
-                strokeColor: '#313131',
-                strokeOpacity: .4,
-                strokeWeight: .8,
-                editable:true
-            });
-            rond = true;
-            // attach circle to marker
-            circle.bindTo('center', markerUser, 'position');
-            google.maps.event.addListener(circle, 'radius_changed', function(){ localisation.tri.call(this);} );
-            google.maps.event.addListener(circle, 'center_changed', function(){ localisation.tri.call(this);} );
-            localisation.tri.call(this);
-            rond = true;
-        }
-    },
-    bigTri : function() {
-        alert("yo");
+    recentrerUtilisateur : function (taille) {
+        
+        google.maps.event.addListenerOnce(map, 'idle', function(){
+            $( "#rond" ).removeClass("loading");
+        });
+        if(
+            !((Math.round(markerUser.getPosition().lng()*10000000000000)/10000000000000) == (Math.round(map.getCenter().lng()*10000000000000)/10000000000000)
+            &&
+            (Math.round(markerUser.getPosition().lat()*10000000000000)/10000000000000) == (Math.round(map.getCenter().lat()*10000000000000)/10000000000000)
+            )){
+            $( "#rond" ).addClass("loading");
+            map.panTo(markerUser.getPosition());
+        }       
+        
     },
 
+    // tri : function(){
+    //     for (var i = 0; i < tabPin.length; i++) {
+    //         tabPin[i].setVisible(true);
+    //     } 
+    //     for (var i = 0; i < tabPin.length; i++) {
+    //         if (circle.getBounds().contains(tabPin[i].getPosition())==false) {
+    //             tabPin[i].setVisible(false);
+    //         }
+    //     }
+    // },
+
     tri : function(){
+
         for (var i = 0; i < tabPin.length; i++) {
-            tabPin[i].setVisible(true);
-        } 
-        for (var i = 0; i < tabPin.length; i++) {
-            if (circle.getBounds().contains(tabPin[i].getPosition())==false) {
-                tabPin[i].setVisible(false);
+                tabPin[i].setVisible(true);
+        }
+
+
+        var nom = $('input[name="name"]').val().toUpperCase();
+        if(nom){
+            for (var i = 0; i < tabPin.length; i++) {
+                var nomJson = tabPin[i].get('nom').toUpperCase();
+                if (nomJson.indexOf(nom)==-1) {
+                    tabPin[i].setVisible(false);
+                }
+            }
+        }
+        //Tableau des checkbox catégories cochées
+        var checked = $('input[name="categories"]:checked');
+        if(checked){
+            //Création du tableau des catégories
+            var catChecked = new Array();
+            checked.each(function(index,el){
+                catChecked.push(el.value);
+            })
+          
+            for (var i = 0; i < tabPin.length; i++) {
+                var catPin = tabPin[i].get('categories');
+
+                for (var j = 0; j < catChecked.length; j++) {
+                    if ($.inArray(catChecked[j],catPin)==-1) {
+                        tabPin[i].setVisible(false);
+                    }
+                }           
+            }
+        }
+        var action = $('input[name="action"]:checked').val().toUpperCase();
+        if(action){
+            for (var i = 0; i < tabPin.length; i++) {
+                var actionJson = tabPin[i].get('action_en_cours').toUpperCase();
+                if (actionJson != action) {
+                    tabPin[i].setVisible(false);
+                }
             }
         }
     },
 
+    reset_tri : function(){
+        $('input[name="name"]').val("");
+
+        var checked = $('input[name="categories"]:checked');
+        if(checked){
+            //Création du tableau des catégories
+            checked.each(function(index,el){
+                el.checked = false;
+            })
+        }
+
+        var checked = $('input[name="action"]:checked');
+        $('input[name="action"]:checked').removeAttr('checked');
+
+
+    },
+
     ajouterMarkers : function(){        
 
-        downloadUrl('wp-content/themes/caritaplace/associations.json',function(data){
+        downloadUrl('http://antoine-wattier.fr/wordpress_hetic/wp-content/themes/caritaplace/associations.json',function(data){
             var fichierJson = eval('('+data+')');
             longueurJson = fichierJson.length;
             for (var i = 0; i < longueurJson; i++) 
@@ -139,6 +181,13 @@ var localisation={
                     var content = fichierJson[i];
                     localisation.geocodeAddress(fichierJson[i].adresse_de_lassociation,i,content);
                 }
+            }
+            if ( $('.adresse').attr('data-lng')!= undefined && $('.adresse').attr('data-lat')!=undefined ) {
+                var lat = $('.adresse')[0].getAttribute('data-lat');
+                var lng = $('.adresse')[0].getAttribute('data-lng');
+                var singleCoord = new google.maps.LatLng(lat,lng);
+                map.setCenter(singleCoord);
+                map.setZoom(16);
             }
         });
         this.geolocUser.call(this);
@@ -166,11 +215,12 @@ var localisation={
                     icon: imgMarqueur
                 });
 
-               var content = '<a href="'+data.permalink+'">'+data.nom+"</a>";
+                var content = '<a href="'+data.permalink+'">'+data.nom+"</a>";
                 if(data.categories)
                     for (var x = 0; x < data.categories.length; x++) {
                         content += '<p>'+data.categories[x].slug+'</p>';
                     }
+                
 
                 var infoBulle = new google.maps.InfoWindow({
                   content: content
@@ -204,6 +254,7 @@ var localisation={
             else{
                 alert("La géolocalisation à échoué pour la raison suivante: " + status);
             }
+            
         });
     }
 

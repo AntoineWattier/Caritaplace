@@ -21,8 +21,7 @@
 						<span></span>
 					</div>
 					<div class="infos">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut viverra erat. Donec consectetur nibh nec enim tempus, sit amet fermentum odio commodo. Mauris venenatis risus malesuada tortor pulvinar volutpat.</p>
-						<p>Nam ligula est, pellentesque suscipit felis volutpat, vestibulum sollicitudin sem. Cras ut sapien orci.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut viverra erat. Donec consectetur nibh nec enim tempus, sit amet fermentum odio commodo. Mauris venenatis risus malesuada tortor pulvinar volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut viverra erat. </p>
+						<p><?php echo get_field('description') ?></p>
 					</div>
 				</div>
 				<div class="element inf">
@@ -32,7 +31,7 @@
 					</div>
 					<div class="infos">
 						<p class="adherents"><strong><?php echo get_field('nombre_dadherents') ?></strong> adhérents</p>
-						<p class="adresse"><?php echo get_field('adresse_de_lassociation') ?><br/> <?php echo get_field('code_postal')." ".get_field('ville') ?></p>
+						<p class="adresse" data-lat="<?php echo get_field('latitude') ?>" data-lng="<?php echo get_field('longitude') ?>"><?php echo get_field('adresse_de_lassociation') ?><br/> <?php echo get_field('code_postal')." ".get_field('ville') ?></p>
 					</div>
 				</div>
 			</div>
@@ -52,6 +51,7 @@
 						    data-currency="EUR" 
 						    data-locale="fr_FR"
 						    data-callback="<?php echo site_url() ?>/confirmation"
+						    data-env="sandbox"
 						></script>
 						<script type="text/javascript">
 						PAYPAL.apps.MiniCart.render({

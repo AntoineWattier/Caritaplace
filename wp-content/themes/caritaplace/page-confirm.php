@@ -12,7 +12,7 @@
 		<section id="confirm">
 			<div class="content clearfix">
 				<h1>Votre paiement a bien été enregistré.</h1>
-				<a href="<?php echo site_url() ?>">RETOUR A L'ACCUEIL</a>
+				<a href="<?php echo site_url() ?>" class="btnType">RETOUR A L'ACCUEIL</a>
 			</div>			
 		</section>
 		<section id="social">
@@ -49,14 +49,14 @@
 					ref.parentNode.insertBefore(js, ref);
 				}(document));
 			</script>
-			<input type="button" onclick="publish()" value="PUBLISH"/>
+			<input type="button" class="btnType" onclick="publish()" value="Partager"/>
 			<!-- /Facebook -->
 			<!-- Twitter -->
 			<style type="text/css" media="screen">
 			</style>
 			 
 			<div id="custom-tweet-button">
-			  <a href="https://twitter.com/share?url=<?php echo site_url() ?>&text=Je%20viens%20de%20faire%20un%20don%20%C3%A0%20des%20associations%2C%20toi%20aussi%20fais%20un%20geste." target="_blank">Tweet</a>
+			  <a class="btnType" href="https://twitter.com/share?url=<?php echo site_url() ?>&text=Je%20viens%20de%20faire%20un%20don%20%C3%A0%20des%20associations%2C%20toi%20aussi%20fais%20un%20geste." target="_blank">Tweeter</a>
 			</div>
 			<!-- /Twitter -->
 		</section>

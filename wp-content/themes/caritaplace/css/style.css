@@ -1,5 +1,7 @@
 /* Propriétés génériques */
-
+html{
+  margin-top:0 !important;
+}
 .content{
   width:1020px;
   display: block;
@@ -9,8 +11,119 @@
 .slog{
   font-style:italic;
 }
+.btnType{
+  margin: auto;
+  display: block;
+  color: white;
+  padding: 3px 0;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size:150%;
+  -webkit-transition:all 250ms ease-out;
+  -moz-transition:all 250ms ease-out;
+  -o-transition:all 250ms ease-out;
+  transition:all 250ms ease-out;
+}
+.btnType:hover, .btnType:active{
+  text-decoration:none;
+  opacity:1;
+}
+/* ----------------- LOADER ------------------ */
 
-/* ----------------- FIN ------------------ */
+.loader{
+     width:20px;
+     height:20px;
+     position:relative;
+     position: absolute;
+     top: 6px;
+     left: 10px;
+     -webkit-animation: rotate 1.3s linear infinite;
+     -moz-animation: rotate 1.3s linear infinite;
+     animation: rotate 1.3s linear infinite;
+}
+@-webkit-keyframes rotate {
+     from {
+          -webkit-transform: rotate(360deg);
+     }
+     to {
+          -webkit-transform: rotate(0deg);
+     }
+}
+@-moz-keyframes rotate {
+     from {
+          -moz-transform: rotate(360deg);
+     }
+     to {
+          -moz-transform: rotate(0deg);
+     }
+}
+@keyframes rotate {
+     from {
+          transform: rotate(360deg);
+     }
+     to {
+          transform: rotate(0deg);
+     }
+}
+
+.loader div{
+     width: 2px;
+     height: 6px;
+     background: black;
+     position: absolute;
+     top: 7px;
+     left: 9px;
+}
+.loader div:nth-child(1){
+     -webkit-transform: rotate(0deg) translate(0, -6px);
+     -moz-transform: rotate(0deg) translate(0, -6px);
+     transform: rotate(0deg) translate(0, -6px);
+}
+.loader div:nth-child(2){
+     -webkit-transform: rotate(45deg) translate(0, -6px);
+     -moz-transform: rotate(45deg) translate(0, -6px);
+     transform: rotate(45deg) translate(0, -6px);
+     opacity:0.7;
+}
+.loader div:nth-child(3){
+     -webkit-transform: rotate(90deg) translate(0, -6px);
+     -moz-transform: rotate(90deg) translate(0, -6px);
+     transform: rotate(90deg) translate(0, -6px);
+     opacity:0.6;
+}
+.loader div:nth-child(4){
+     -webkit-transform: rotate(135deg) translate(0, -6px);
+     -moz-transform: rotate(135deg) translate(0, -6px);
+     transform: rotate(135deg) translate(0, -6px);
+     opacity:0.5;
+}
+.loader div:nth-child(5){
+     -webkit-transform: rotate(180deg) translate(0, -6px);
+     -moz-transform: rotate(180deg) translate(0, -6px);
+     transform: rotate(180deg) translate(0, -6px);
+     opacity:0.4;
+}
+.loader div:nth-child(6){
+     -webkit-transform: rotate(225deg) translate(0, -6px);
+     -moz-transform: rotate(225deg) translate(0, -6px);
+     transform: rotate(225deg) translate(0, -6px);
+     opacity:0.3;
+}
+.loader div:nth-child(7){
+     -webkit-transform: rotate(270deg) translate(0, -6px);
+     -moz-transform: rotate(270deg) translate(0, -6px);
+     transform: rotate(270deg) translate(0, -6px);
+     opacity:0.2;
+}
+.loader div:nth-child(8){
+     -webkit-transform: rotate(315deg) translate(0, -6px);
+     -moz-transform: rotate(315deg) translate(0, -6px);
+     transform: rotate(315deg) translate(0, -6px);
+     opacity:0.1;
+}
+
+/* ----------------- AUTRE ------------------ */
 html{
   height: 100%;
 }
@@ -58,6 +171,7 @@ header>div{
   width:1020px;
   margin:auto;
   position: relative;
+  height: 50px;
 }
 header>div>a, header>div>a:hover{
   float:left;
@@ -116,7 +230,7 @@ header>div>a, header>div>a:hover{
   width: 100%;
   height: 600px;
   position: relative;
-  padding-top: 54px;
+  margin-top: 54px;
 }
 #the_map{
   height:100%;
@@ -137,7 +251,7 @@ header>div>a, header>div>a:hover{
   font-family:SEGOEUIL, arial;
 box-sizing:border-box; -moz-box-sizing: border-box;
 -webkit-box-sizing: border-box;
-  z-index: 1;
+  z-index: 2;
   top: 0;
 }
 #filtre h2{
@@ -147,6 +261,7 @@ font-family:SEGOEUIL, arial;
 box-sizing:border-box; -moz-box-sizing: border-box;
 -webkit-box-sizing: border-box;
 font-weight:bold;
+margin-bottom: 50px
 }
 #filtre h3{
   text-align: right;
@@ -156,21 +271,45 @@ box-sizing:border-box; -moz-box-sizing: border-box;
 -webkit-box-sizing: border-box;
   border-bottom:2px solid #b6b6b6;
   padding-bottom: 5px;
-  margin:10px 0;
+  margin: 25px 0 7px 0;
+  font-weight: bold;
 }
-#filtre>a{
+#filtre>div{
+  position: relative;
+}
+#rond{
   background:white;
-  padding:3px;
-  text-align:center;
   color:#353535;
   width: 100%;
-  display: block;
-  text-decoration:none;
   font-size:130%;
   font-weight:bold;
   margin:20px 0;
+  position: relative;
+  letter-spacing:normal;
+  padding:0;
+  height: 30px;
+  margin: 0;
+  border-radius: 0;
 }
-
+#rond>span{
+  height:auto;
+}
+#rond:before {
+  content: "LOADING";
+  line-height: 30px;
+  font-size: 130%;
+  font-weight: bold;
+  font-family: SEGOEUIL, arial;
+}
+#filtre>div>.btnType+.loader{
+  display: none;
+}
+#filtre>div>.btnType.loading{
+  background:rgb(198, 255, 195);
+}
+#filtre>div>.btnType.loading+.loader{
+  display:block;
+}
 #accordion>form{
   padding:0;
   margin:0;
@@ -193,6 +332,9 @@ box-sizing:border-box; -moz-box-sizing: border-box;
   border:none;
   float: right;
 }
+#filtre>input[type="button"]:last-child{
+  margin-top:40px;
+}
 #filtre>input[type="button"]{
   text-align: center;
   background: none;
@@ -212,7 +354,7 @@ margin:8px 0;
 #accordion>div>label{
   float:right;
   color:#b6b6b6;
-  font-size:140%;
+  font-size:150%;
   font-weight:normal;
   margin: 0 10px;
   font-family:SEGOEUIL, arial;
@@ -232,7 +374,7 @@ display: block;
 #liste, #informations, #panier, #confirm{
   background:url(images/separateur_couleur.jpg) repeat-x top center;
 }
-#liste h2{
+.titreN1{
   text-align:center;
   font-family:SEGOEUIL, arial;
 box-sizing:border-box; -moz-box-sizing: border-box;
@@ -276,7 +418,7 @@ box-sizing:border-box; -moz-box-sizing: border-box;
   color:white;
   font-size:160%;
 }
-#liste .element, #panier .element{
+#liste .element{
   overflow:hidden;
   height:130px;
   margin:30px auto;
@@ -287,33 +429,7 @@ box-sizing:border-box; -moz-box-sizing: border-box;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
 }
-#panier .element>div{
-  overflow:hidden;
-  display:inline-block;
-  position: relative;
-  height:100%;
-  padding: 0 6px;
-}
-#panier .element>div:nth-child(1){
-  vertical-align: middle;
-}
-#panier .element>div:nth-child(2){
-  padding-top:0;
-  vertical-align: top;
-}
-#panier .element>div:nth-child(3)>a{
-  text-align:center;
-  font-size:180%;
-  color:white;
-  margin-bottom:0;
-  text-decoration:none;
-  width:100%;
-  display: block;
-  background:#e74c3c;
-  line-height: 140px;
-  height:100%;
-}
-#liste .element .logo, #panier .element .logo{
+#liste .element .logo{
   height:100%;
   width:100%;
   top: 0;
@@ -331,40 +447,20 @@ box-sizing:border-box; -moz-box-sizing: border-box;
 #liste .element .logo{
   right: 350px;
 }
-#panier .element .logo{
-  right:330px;
-}
-#panier .element .logo>p{
-  width: 370px;
+#liste .element .btnType{
+  background-color: white;
+  font-size: 160%;
+  font-weight: bold;
+  margin-top: 55px;
+  margin-left: 100px;
+  color:#353535;
+  width: 170px;
   float: left;
-  padding: 20px;
-  color:white;
-  font-family:SEGOEUIL, arial;
-box-sizing:border-box; -moz-box-sizing: border-box;
--webkit-box-sizing: border-box;
-  font-size:130%;
-  height:100%;
 }
-#panier .element .logo{
-  right: 365px;
-}
-#liste .element .logo>a, #panier .element .logo>a{
-background-color: white;
-padding: 4px 0;
-font-size: 160%;
-font-weight: bold;
-margin-top: 45px;
-margin-left: 100px;
-color:#353535;
-display: block;
-width: 170px;
-float: left;
-text-decoration:none;
-}
-#liste .element:hover .logo, #panier .element>div:hover .logo{
+#liste .element:hover .logo{
   right:0px;
 }
-#liste .element .logo span, #panier .element .logo span{
+#liste .element .logo span{
 position:absolute;
 height:29px;
 width:15px;
@@ -372,19 +468,19 @@ right:-14px;
 top:50px;
 background: url(images/fleche_photo.png) no-repeat center center;
 }
-#panier .element .logo .fond, #liste .element .logo .fond{
+#liste .element .logo .fond{
   position:absolute;
   top:5px;
   right:0;
 }
-#liste .element .logo .photo, #panier .element .logo .photo{
+#liste .element .logo .photo{
 width:100px;
 height:100px;
 margin-top:15px;
 float:right;
 margin-right: 25px;
 }
-#panier .element .infos, #liste .element .infos{
+#liste .element .infos{
   padding-left: 150px;
   width: 100%;
   height: 100%;
@@ -396,14 +492,14 @@ margin-right: 25px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
-#panier .element .infos>*, #liste .element .infos>*{
+#panier .element .infos>*{
   padding:0 10px;
 }
 #panier .element.second .infos{
   margin-left:0;
   width: 100%;
 }
-#liste .element .infos h3, #panier .element .infos h3{
+#liste .element .infos h3{
   text-align:center;
   font-family:SEGOEUIL, arial;
 box-sizing:border-box; -moz-box-sizing: border-box;
@@ -413,13 +509,13 @@ box-sizing:border-box; -moz-box-sizing: border-box;
   font-weight: bold;
   font-size: 200%;
 }
-#liste .element .infos p, #panier .element .infos p{
+#liste .element .infos p{
   text-align:center;
   color:#333333;
   clear:both;
   font-size:130%;
 }
-#liste .element .infos p.categ, #panier .element .infos p.categ{
+#liste .element .infos p.categ{
   margin:0;
   width:100%;
 }
@@ -446,13 +542,13 @@ box-sizing:border-box; -moz-box-sizing: border-box;
 #informations .element{
   background-color:white;
 }
-#informations .element>.top, #panier .element .top{
+#informations .element>.top{
   width:100%;
   position: relative;
   background-color: #2980b9;
   padding:5px 10px;
 }
-#informations .element>.top span, #panier .element .top span{
+#informations .element>.top span{
   position: absolute;
   height: 15px;
   width: 29px;
@@ -462,7 +558,7 @@ box-sizing:border-box; -moz-box-sizing: border-box;
   background: url(images/fleche_photo_bas.png) no-repeat center center;
   z-index: 1;
 }
-#informations .element>.top h3, #informations .element>.top h2, #panier .element .top h3{
+#informations .element>.top h3, #informations .element>.top h2{
   text-align:center;
   font-family:SEGOEUIL, arial;
 box-sizing:border-box; -moz-box-sizing: border-box;
@@ -471,34 +567,6 @@ box-sizing:border-box; -moz-box-sizing: border-box;
   font-weight: bold;
   font-size: 200%;
   margin: 5px 0;
-}
-#panier h2{
-  text-align:center;
-  font-family:SEGOEUIL, arial;
-box-sizing:border-box; -moz-box-sizing: border-box;
--webkit-box-sizing: border-box;
-  color:white ;
-  font-size: 250%;
-}
-#panier>div>a{
-  text-decoration:none;
-  display: block;
-  width:300px;
-  text-align:center;
-  font-family:SEGOEUIL, arial;
-box-sizing:border-box; box-sizing:border-box; -moz-box-sizing: border-box;
--webkit-box-sizing: border-box;
-  color:white ;
-  margin:10px auto 0 auto;
-  font-size:200%;
-  padding:5px 20px;
-  border-radius:3px;
-}
-#panier>div>a.chercher{
-  background:#999999;
-}
-#panier>div>a.valider{
-  background:#7ab343;
 }
 #informations .element>.top .logo>img.photo{
   display: block;
@@ -611,17 +679,9 @@ box-sizing:border-box; -moz-box-sizing: border-box;
   margin: 5px 0;
 }
 #confirm a{
-  margin: auto;
-  display: block;
   margin-top: 20px;
-  font-size: 150%;
   background: #ffb600;
-  color: white;
-  padding: 3px 50px;
-  border: none;
   width: 250px;
-  text-align: center;
-  text-decoration: none;
 }
 form.paypal-button button {
   margin: auto;
@@ -643,7 +703,7 @@ form.paypal-button button:before, form.paypal-button button:after {
 }
 div#PPMiniCart form {
   z-index:2;
-  background: #ffb600 url(images/mesdons.png) no-repeat center 2px;
+  background: #2980b9 url(images/mesdons.png) no-repeat center 2px;
   right: 50%;
   margin-right: -510px;
   border:none;
@@ -654,13 +714,18 @@ div#PPMiniCart form, div#PPMiniCart li a {
   color: white;
   font-family: SEGOEUIL, arial;
 }
+div#PPMiniCart form>p{
+  background: url(images/minicart_sprite.png) no-repeat;
+}
 div#PPMiniCart p input {
   font-family: SEGOEUIL, arial;
   border:none;
   background:white;
   font-size:120%;
-  margin: 4px 0;
-  color: #ffb600;
+  margin: 0 4px 0 0;
+  color: black;
+  padding: 2px 15px;
+  border-radius: 0;
 }
 div#PPMiniCart>form>p>span {
   line-height:30px;
@@ -693,25 +758,19 @@ div#PPMiniCart li .remove {
   font-family: SEGOEUIL, arial;
   margin: 0;
 }
-#social>input, #social>#custom-tweet-button{
-  margin: auto;
-  display: block;
+#social .btnType{
   margin-top: 20px;
-  font-size: 150%;
-  background: #ffb600;
-  color: white;
-  padding: 3px 50px;
-  border: none;
   width: 250px;
-  text-align: center;
-  text-decoration: none;
-  border:none;
 }
-#social>input{
+#social input.btnType{
   background: #294b91 url('images/facebook.png') 15px center no-repeat;
 }
-#social>#custom-tweet-button{
+#social #custom-tweet-button{
+  padding: 0;
+}
+#social #custom-tweet-button>a{
   background: #359bed url('images/twitter.png') 15px center no-repeat;
+  width: 250px;
 }
 #social>#custom-tweet-button>a{
   color:white;
