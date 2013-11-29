@@ -25,7 +25,7 @@
 						<h2>Association <?php the_title() ?></h2>
 						<div class="logo">
 							<img class="fond" src="<?php echo get_stylesheet_directory_uri(); ?>/css/images/fond_photo.png" alt="nothing"/>
-							<img class="photo" src="<?php echo get_field('logo') ?>" alt="logo de l'association"/>
+							<img class="photo" src="<?php echo (get_field('logo') ? get_field('logo') : get_stylesheet_directory_uri()."/images/default.png") ?>" alt="logo de l'association"/>
 							<p class="slog">"<?php echo get_field('slogan') ?>"</p>
 						</div>
 						<span></span>
@@ -42,8 +42,20 @@
 					<div>
 						<p class="adherents"><strong><?php echo get_field('nombre_dadherents') ?></strong> adhérents</p>
 						<p class="adresse" data-lat="<?php echo get_field('latitude') ?>" data-lng="<?php echo get_field('longitude') ?>"><?php echo get_field('adresse_de_lassociation') ?><br/> <?php echo get_field('code_postal')." ".get_field('ville') ?></p>
-						<p class="categ"><strong>sport, enfance</strong></p>
-						<p class="action"><strong>Action en cours:</strong>Reconstruction de la maison de zajac.</p>
+						<p class="categ">
+							<strong>
+							<?php  
+					        $categories =  wp_get_post_terms($post->ID, 'categories');
+						        foreach ($categories as $categorie) : 
+						        	echo $categorie->name." ";
+					      		endforeach; 
+					      	?>
+					      	</strong>
+					    </p>
+					    <?php $actions =  wp_get_post_terms($post->ID, 'action_en_cours');
+						      if($actions[0]->slug =="en-cours") : ?>
+									<p class="action"><strong>Action en cours : </strong><?php echo get_field('but_de_laction') ?></p>
+							  <?php endif;?>
 					</div>
 				</div>
 			</div>
@@ -84,39 +96,43 @@
 						<span></span>
 					</div>
 					<div>
-						<a href="" class="otherElement">
-							<div class="logo">
-								<img class="fond" src="<?php echo get_stylesheet_directory_uri(); ?>/css/images/cercle.png" alt="nothing"/>
-								<img class="photo" src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.jpg" alt="logo de l'association"/>
-								<span></span>
-							</div>
-							<div class="other blue">
-								<h3>Association ASSAGA</h3>
-								<p class="categ">Catégories: Environnement, Sport</p>
-							</div>
-						</a>
-						<a href="" class="otherElement">
-							<div class="logo">
-								<img class="fond" src="<?php echo get_stylesheet_directory_uri(); ?>/css/images/cercle.png" alt="nothing"/>
-								<img class="photo" src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.jpg" alt="logo de l'association"/>
-								<span></span>
-							</div>
-							<div class="other orange">
-								<h3>Association ASSAGA</h3>
-								<p class="categ">Catégories: Environnement, Sport</p>
-							</div>
-						</a>
-						<a href="" class="otherElement">
-							<div class="logo">
-								<img class="fond" src="<?php echo get_stylesheet_directory_uri(); ?>/css/images/cercle.png" alt="nothing"/>
-								<img class="photo" src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.jpg" alt="logo de l'association"/>
-								<span></span>
-							</div>
-							<div class="other green">
-								<h3>Association ASSAGA</h3>
-								<p class="categ">Catégories: Environnement, Sport</p>
-							</div>
-						</a>
+						<?php	
+
+						$args=array(
+							'post__not_in' => array($post->ID),
+							'posts_per_page'=>3,
+							'caller_get_posts'=>1,
+							'orderby' => 'rand',
+							'post_type'=>'associations',
+							'categories'=> $categories[0]->slug
+						);
+						$my_query = new WP_Query($args);
+						if( $my_query->have_posts() ) {
+							while ($my_query->have_posts()) : $my_query->the_post(); ?>
+								<a href="<?php echo the_permalink() ?>" class="otherElement">
+									<div class="logo">
+										<img class="fond" src="<?php echo get_stylesheet_directory_uri(); ?>/css/images/cercle.png" alt="nothing"/>
+										<img class="photo" src="<?php echo (get_field('logo') ? get_field('logo') : get_stylesheet_directory_uri()."/images/default.png") ?>" alt="logo de l'association"/>
+										<span></span>
+									</div>
+									<div class="other">
+										<h3><?php echo the_title() ?></h3>
+										<p class="categ">Catégories :
+											<?php  
+									        $categories =  wp_get_post_terms($post->ID, 'categories');
+										        foreach ($categories as $categorie) : 
+										        	echo $categorie->name." ";
+									      		endforeach; 
+									      	?>
+										</p>
+									</div>
+								</a>
+							<?php
+							endwhile;
+						}
+						wp_reset_query();
+						
+						?>
 					</div>
 				
 			</div>
