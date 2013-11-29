@@ -28,20 +28,38 @@ localisation.init({
     }
 });
 var action = false ;
+var nom = false ;
 
-//
+
+
+
 
 $('input[name="ok"]').on("click", function(){
-    localisation.tri();
-});
+    console.log("fonction lancée");
+    if (!nom) {
+        $(".filterlist").append("<div><p>nom : <strong>'"+$('input[name="name"]').val()+"'</strong></p><a id='nomFilter' href='#''>X</a></div>");
+        nom = true;
+        $('#nomFilter').on("click", function(){
+            console.log("evenement assigné");
+            event.preventDefault();
+            nom = false;
+                        console.log("evenement assigné2");
 
-$('input[name="categories"]').on("click", function(){
+            $('input[name="name"]').val("");
+                        console.log("evenement assigné3");
+
+            $(this).parent().remove();
+                        console.log("evenement assigné4");
+
+            localisation.tri();
+            return false;
+        });
+    }
     localisation.tri();
 });
 
 $('input[name="action"]').on("click", function() {
     localisation.tri();
-    console.log(action);
     if (!action) {
         $(".filterlist").append("<div><p>action en cours : <strong>"+$(this).val()+"</strong></p><a id='actionFilter' href='#''>X</a></div>");
         action = true;
@@ -51,7 +69,6 @@ $('input[name="action"]').on("click", function() {
             $('input[name="action"]').attr('checked', false);
             $('#actionFilter').parent().remove();
             localisation.tri();
-            console.log(action+"!");
             return false;
         });
     }
@@ -59,7 +76,7 @@ $('input[name="action"]').on("click", function() {
 
 $('input[name="reset"]').on("click", function() {
     localisation.reset_tri();
-    localisation.tri();
+    $(".filterlist").children().remove();
 });
 
 

@@ -141,12 +141,14 @@ var localisation={
                 }           
             }
         }
-        var action = $('input[name="action"]:checked').val().toUpperCase();
-        if(action){
-            for (var i = 0; i < tabPin.length; i++) {
-                var actionJson = tabPin[i].get('action_en_cours').toUpperCase();
-                if (actionJson != action) {
-                    tabPin[i].setVisible(false);
+        if ($('input[name="action"]:checked').val() != undefined) {
+            var action = $('input[name="action"]:checked').val().toUpperCase();
+            if(action){
+                for (var i = 0; i < tabPin.length; i++) {
+                    var actionJson = tabPin[i].get('action_en_cours').toUpperCase();
+                    if (actionJson != action) {
+                        tabPin[i].setVisible(false);
+                    }
                 }
             }
         }

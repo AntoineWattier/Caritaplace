@@ -17,14 +17,17 @@
   #liste, #confirm, #social{
     padding:10px;
   }
+
+
+  /* ----------------- HEADER ------------------ */
   header{
     position:relative;
-    height:auto;
+    height: 122px;
   }
   header>span {
     display:none;
   }
-  header>div>a, header>div>a:hover{
+   header>div>a, header>div>a:hover{
     width:100%;
     border-radius:0;
     float:none;
@@ -39,22 +42,20 @@
   header>div {
     width:100%;
   }
+  
+
+  /* ----------------- MAP ------------------ */
+  #map .loader{
+    top:75px;
+    left:40%;
+  }
+  #map.little .loader{
+    top:25px;
+  }
   #map{
     margin-top: 0;
     height: auto;
     padding-top: 0;
-  }
-  #listeDons{
-    float:none;
-    margin:auto;
-    padding: 15px 10px;
-    background: url(images/portefeuille.png) no-repeat 21px 4px;
-  }
-  #listeDons>p {
-    margin:0;
-  }
-  #listeDons>p:first-child {
-    line-height:38px;
   }
   #filtre {
     position: relative;
@@ -80,6 +81,19 @@
     padding-right: 40px;
     position: relative;
   }
+  #map.little {
+    height: 150px;
+  }
+  #map.little>div {
+    height: 100%;
+  }
+  #accordion>div>input[type="button"] {
+    position: absolute;
+    top: 9px;
+    right: 0;
+  }
+
+  /* ----------------- ACCUEIL ------------------ */
   #liste .content {
     padding-top: 0;
   }
@@ -148,12 +162,18 @@
   #liste .filterlist>div>p {
     font-size:140%;
   }
+   #liste .element {
+    border:none;
+   }
+
+
+  /* ----------------- PAGE ASSO ------------------ */
   #informations .element{
     width:100% !important;
     display: block !important;
     margin:0 !important;
   }
-  #informations .content {
+  #informations .content{
     display: block;
     padding: 8px;
   }
@@ -172,33 +192,25 @@
   form>.irs {
     width: 95%;
   }
-  #map.little {
-    height: 150px;
-  }
-  #map.little>div {
-    height: 100%;
-  }
-  #informations .element.aussi .infos .otherElement {
+  #informations .aussi .otherElement {
     width:100%;
     display: block;
   }
-  #informations .aussi .infos {
+  #informations .aussi>div:last-child {
     width: 100%;
   }
-  #informations .aussi .infos .otherElement .logo>img.fond {
+  #informations .aussi .otherElement .logo>img.fond {
     top: -9px;
   }
-  #accordion>div>input[type="button"] {
-    position: absolute;
-    top: 9px;
-    right: 0;
-   }
+  
+
+  /* ----------------- PAGE CONFIRMATION PAIEMENT ------------------ */
    #social>input, #social>#custom-tweet-button, #confirm a {
     width: 100%;
    }
-   #liste .element {
-    border:none;
-   }
+  
+
+  /* ----------------- PAYPAL ------------------ */
    div#PPMiniCart form {
     left: 0;
     width: 100% !important;

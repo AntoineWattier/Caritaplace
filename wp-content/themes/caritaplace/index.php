@@ -74,10 +74,6 @@
 					<h2 class="titreN1">6 associations correspondent à votre recherche</h2>
 					<div class="filterlist clearfix">
 						<div>
-							<p>nom : <strong>"Nom recherche"</strong></p>
-							<a id="nomFilter" href="#">X</a>
-						</div>
-						<div>
 							<p>catégorie : <strong>"Environnement"</strong></p>
 							<a id="catFilter" href="#">X</a>
 						</div>

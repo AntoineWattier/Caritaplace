@@ -8,6 +8,8 @@ Author: Antoine Wattier
 Author URI: http://yourdomain.com
 */
 
+
+//Retourne les lat lng en fonction d'une adresse postale
 function geocode($street_address,$city,$state){
         
     $street_address = str_replace(" ", "+", $street_address); //google doesn't like spaces in urls, but who does?
@@ -43,15 +45,16 @@ function geocode($street_address,$city,$state){
     return $return;
 }
 
+//Met a jour le fichier JSON
 function json_post($post_id) {
-    $post = get_post($post_id);
-    $fields = get_fields($post_id);
+    // $post = get_post($post_id);
+    // $fields = get_fields($post_id);
     $content = array();
 
     //On récupère les lat lng en fonction de l'adresse
     $coords = geocode(get_field('adresse_de_lassociation',$post_id),get_field('ville',$post_id),"FRANCE");
-    $fields['latitude'] = $coords['latitude'];
-    $fields['longitude'] = $coords['longitude'];
+    // $fields['latitude'] = $coords['latitude'];
+    // $fields['longitude'] = $coords['longitude'];
 
 
     update_field('field_528e0e4107a59', $coords['latitude'], $post_id);
@@ -70,7 +73,7 @@ function json_post($post_id) {
         $tmp['nom']=get_the_title($id);
         $tmp['permalink']=get_permalink($id);
         $tmp['categories']=wp_get_post_terms($id,'categories');
-        $tmp['action']=wp_get_post_terms($id,'action_en_cours');
+        $tmp['action_en_cours']=wp_get_post_terms($id,'action_en_cours');
 
         array_push($content, $tmp);
     }
@@ -80,11 +83,11 @@ function json_post($post_id) {
     $fp = fopen(get_stylesheet_directory()."/associations.json","wb");
     fwrite($fp,$content);
     fclose($fp);
-    //wp_mail( 'wattier.antoine@gmail.com',  $post->post_title, $content);
 
 }
 
 add_action('acf/save_post', 'json_post', 99);
+add_action('trashed_post', 'json_post', 99);
 
 /**
  * Tests if any of a post's assigned categories are descendants of target categories
