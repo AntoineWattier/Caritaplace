@@ -273,14 +273,11 @@ margin-right: 25px;
   height: 100%;
   background-color:white;
   float: left;
+  height:100%;
   position:relative;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  display: table;
-  vertical-align: middle;
-  padding-top: 20px;
-  padding-bottom: 20px;
 }
 #liste .element .infos h3{
   text-align:center;
@@ -291,16 +288,12 @@ box-sizing:border-box; -moz-box-sizing: border-box;
   margin-top:25px;
   font-weight: bold;
   font-size: 200%;
-  display: table-row;
-  vertical-align: middle;
 }
 #liste .element .infos p{
   text-align:center;
   color:#333333;
   clear:both;
-  font-size: 150%;
-  display: table-row;
-  vertical-align: middle;
+  font-size:130%;
 }
 #liste .element .infos p.categ{
   margin:0;
