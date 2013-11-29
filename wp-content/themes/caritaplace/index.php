@@ -71,53 +71,15 @@
 					<!-- ICI LA VIDEO -->
 				</div>
 				<div id="alternative">
-					<h2 class="titreN1">6 associations correspondent à votre recherche</h2>
+					<h2 class="titreN1"><span id="number">6</span> associations correspondent à votre recherche</h2>
 					<div class="filterlist clearfix">
 						<div>
 							<p>catégorie : <strong>"Environnement"</strong></p>
 							<a id="catFilter" href="#">X</a>
 						</div>
+						
 					</div>
-					<div class="element second col-md-6 col-sm-12 col-xs-12">
-						<div class="logo">
-							<a class="btnType" href="detail.php">Voir la page</a>
-							<img class="fond" src="<?php echo get_stylesheet_directory_uri(); ?>/css/images/fond_photo.png" alt="nothing"/>
-							<img class="photo" src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.jpg" alt="logo de l'association"/>
-							<span></span>
-						</div>
-						<div class="infos">
-							<h3>Association ASSAGA</h3>
-							<p class="slog">"Parce que trouver des slogans qui tuent n'est pas notre métier"</p>
-							<p class="categ">Catégories: Environnement, Sport</p>
-						</div>
-					</div>
-					<div class="element second col-md-6 col-sm-12 col-xs-12">
-						<div class="logo">
-							<a class="btnType" href="detail.php">Voir la page</a>
-							<img class="fond" src="<?php echo get_stylesheet_directory_uri(); ?>/css/images/fond_photo.png" alt="nothing"/>
-							<img class="photo" src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.jpg" alt="logo de l'association"/>
-							<span></span>
-						</div>
-						<div class="infos">
-							<h3>Association ASSAGA</h3>
-							<p class="slog">"Parce que trouver des slogans"</p>
-							<p class="categ">Catégories: Environnement, Sport</p>
-						</div>
-					</div>
-					<div class="element second col-md-6 col-sm-12 col-xs-12">
-						<div class="logo">
-							<a class="btnType" href="detail.php">Voir la page</a>
-							<img class="fond" src="<?php echo get_stylesheet_directory_uri(); ?>/css/images/fond_photo.png" alt="nothing"/>
-							<img class="photo" src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.jpg" alt="logo de l'association"/>
-							<span></span>
-						</div>
-						<div class="infos">
-							<h3>Association ASSAGA</h3>
-							<p class="slog">"Parce que trouver des slogans qui tuent n'est pas notre métier"</p>
-							<p class="categ">Catégories: Environnement, Sport</p>
-						</div>
-					</div>
-					
+					<div id="founded_assos"></div>
 				</div>
 			</div>
 		</section>

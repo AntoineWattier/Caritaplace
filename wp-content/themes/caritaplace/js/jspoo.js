@@ -25,6 +25,44 @@ localisation.init({
     },
     nonlocalized : function(pos){
         console.warn('Impossible d\'effectuer la géolocalisation');
+    },
+    sorted : function(){
+
+        // on clear les anciennes asso;
+        $('#founded_assos').html("");
+        var compteur = 0;
+        for (var i = 0; i < tabPin.length; i++) {
+            if(tabPin[i].visible){
+
+                //On créé nos blocs
+                var div_main = $('<div>').addClass('element second col-md-6 col-sm-12 col-xs-12');
+                var div_logo = $('<div>').addClass('logo');
+                var link = $('<a>').addClass('btnType').attr('href', tabPin[i].permalink).text('Voir la page');
+                var contour_logo  = $('<img>').addClass('fond').attr('src','http://antoine-wattier.fr/wordpress_hetic/wp-content/themes/caritaplace/css/images/fond_photo.png').attr('alt','nothing');
+                var logo  = $('<img>').addClass('photo').attr('src',tabPin[i].logo).attr('alt','logo de l\'association');
+                var span = $('<span>');
+                var div_info = $('<div>').addClass('infos');
+                var nom_asso = $('<h3>').text(unescape(tabPin[i].nom));
+                var slogan = $('<p>').addClass('slog').text('Parce que trouver des slogans qui tuent n\'est pas notre métier');
+
+                var cats = "";
+                for (var j = 0; j < tabPin[i].categories.length; j++) {
+                    cats = tabPin[i].categories[j]+" ";
+                }
+
+                var categories = $('<p>').addClass('categ').text('Catégories : '+cats);
+
+                //On les associe
+                div_info.append(nom_asso).append(slogan).append(categories);
+                div_logo.append(link).append(contour_logo).append(logo).append(span);
+                div_main.append(div_logo).append(div_info);
+
+                $('#founded_assos').append(div_main);
+
+                compteur++;
+           }
+        }
+        $("#number").text(compteur);
     }
 });
 var action = false ;
@@ -72,6 +110,10 @@ $('input[name="action"]').on("click", function() {
             return false;
         });
     }
+});
+
+$('input[name="categories"]').on("click", function(){
+    localisation.tri();
 });
 
 $('input[name="reset"]').on("click", function() {

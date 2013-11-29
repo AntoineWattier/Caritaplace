@@ -13,6 +13,7 @@ var localisation={
             carte : '#carte',
             localized : function(){},
             nonlocalized : function(){},
+            sorted : function(){}
     },
     
 
@@ -152,9 +153,16 @@ var localisation={
                 }
             }
         }
+
+        this.params.sorted.call(this);
+
     },
 
     reset_tri : function(){
+        for (var i = 0; i < tabPin.length; i++) {
+                tabPin[i].setVisible(true);
+        }
+
         $('input[name="name"]').val("");
 
         var checked = $('input[name="categories"]:checked');
@@ -167,6 +175,8 @@ var localisation={
 
         var checked = $('input[name="action"]:checked');
         $('input[name="action"]:checked').removeAttr('checked');
+
+        this.params.sorted.call(this);
 
 
     },
@@ -224,8 +234,10 @@ var localisation={
 
                 //On stocke les infos pour quelles soient manipulables.
                 tabPin[y].set('nom',data.nom);
+                tabPin[y].set('permalink',data.permalink);
                 tabPin[y].set('action_en_cours',data.action_en_cours[0].slug);
-
+                if(data.logo)
+                    tabPin[y].set('logo',data.logo);
 
                 var cats = new Array();
                 for (var i = 0; i < data.categories.length; i++) {
