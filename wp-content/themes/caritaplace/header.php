@@ -17,11 +17,6 @@
 	<span></span>
 	<div class="clearfix">
 		<a href="<?php echo site_url() ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/caritaplace.png" alt="logo"/>CaritaPlace</a>
-
-		<div id="listeDons">
-				<p><strong>20€</strong></p>
-				<p><strong>VOS DONS <br /> 3</strong> associations</p>
-		</div>
 		<span></span>
 	</div>
 </header>

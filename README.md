@@ -6,3 +6,6 @@ Groupe composé de:
 - Antoine Wattier
 - Pierre Zajac
 
+
+http://antoine-wattier.fr/wordpress_hetic/
+

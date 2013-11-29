@@ -1,4 +1,27 @@
-@media (min-width : 320px) and (max-width : 700px) {
+
+/* VERSION WEB POUR PLUS PETITS ECRANS / ULTRABOOKS */
+
+@media (max-height : 700px){
+  #map {
+    height: 500px;
+  }
+  #filtre h2 {
+    margin-top: 0;
+  }
+  #filtre h3{
+    margin: 15px 0 7px 0;
+  }
+  #accordion>div>label {
+    line-height:22px;
+  }
+  #accordion>div>input[type="checkbox"]{
+    margin: 6px 0;
+  }
+}
+
+/* VERSION WEB POUR PLUS PETITS ECRANS / ULTRABOOKS */
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
   body, .content{
     width:100%;
   }
@@ -115,6 +138,9 @@
     display:block;
     padding: 5px 0;
   }
+  #liste>div>div>div {
+    width: 100%;
+  }
   #liste .element .infos>*{
     margin:5px 0 !important;
   }
@@ -124,6 +150,7 @@
     float:none;
     right: 0;
     position: initial;
+    height: 73px;
   }
   #liste .element .logo>a{
     color:transparent;
@@ -138,6 +165,7 @@
   #liste h2 {
     font-size:250%;
     margin-bottom:0;
+    padding: 0 10px;
   }
   #liste .element .logo:hover{
     right: 0;
@@ -151,7 +179,7 @@
   #liste .element .logo .photo{
     float:none;
     margin: auto;
-    width: 61px;
+    width: 71px;
     padding: 6px 0;
     height: auto;
   }
@@ -200,7 +228,7 @@
     width: 100%;
   }
   #informations .aussi .otherElement .logo>img.fond {
-    top: -9px;
+    top: -7px;
   }
   
 
@@ -216,4 +244,10 @@
     width: 100% !important;
     border-radius:0;
    }
+
+
+   /* ----------------- VIDEO ------------------ */
+   #default div #conteneurVideo {
+    width: 100%;
+  }
 }

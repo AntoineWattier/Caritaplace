@@ -6,7 +6,7 @@ var rond = false;
 var circle;
 var boundcircle;
 var imgMarqueur = new google.maps.MarkerImage('http://antoine-wattier.fr/wordpress_hetic/wp-content/themes/caritaplace/images/pinAsso.png', new google.maps.Size(24, 34), new google.maps.Point(0,0), new google.maps.Point(12, 34));        
-
+var timeOutVar = 0;
 var localisation={
     
     defaults : {
@@ -132,10 +132,10 @@ var localisation={
                 catChecked.push(el.value);
             })
           
-            for (var i = 0; i < tabPin.length; i++) {
-                var catPin = tabPin[i].get('categories');
-
-                for (var j = 0; j < catChecked.length; j++) {
+            
+            for (var j = 0; j < catChecked.length; j++) {
+                for (var i = 0; i < tabPin.length; i++) {
+                    var catPin = tabPin[i].get('categories');
                     if ($.inArray(catChecked[j],catPin)==-1) {
                         tabPin[i].setVisible(false);
                     }
@@ -188,11 +188,8 @@ var localisation={
             longueurJson = fichierJson.length;
             for (var i = 0; i < longueurJson; i++) 
             {
-                if(fichierJson[i].adresse_de_lassociation)
-                {
-                    var content = fichierJson[i];
-                    localisation.geocodeAddress(fichierJson[i].adresse_de_lassociation,i,content);
-                }
+                var content = fichierJson[i];
+                localisation.geocodeAddress(i,content);
             }
         });
         this.geolocUser.call(this);
@@ -210,10 +207,10 @@ var localisation={
     },
 
 
-    geocodeAddress: function(sAddress,y,data){
-        geocoder.geocode( { 'address': sAddress}, function(results, status) { 
-            if (status == google.maps.GeocoderStatus.OK) {
-                var coordonnees = results[0].geometry.location;
+    geocodeAddress: function(y,data){
+
+                var coordonnees = new google.maps.LatLng(data.latitude, data.longitude);
+
                 bounds.extend(coordonnees);
                 tabPin[y] = new google.maps.Marker({
                     position: coordonnees,
@@ -234,10 +231,14 @@ var localisation={
 
                 //On stocke les infos pour quelles soient manipulables.
                 tabPin[y].set('nom',data.nom);
+                if(data.slogan)
+                    tabPin[y].set('slogan',data.slogan);
                 tabPin[y].set('permalink',data.permalink);
-                tabPin[y].set('action_en_cours',data.action_en_cours[0].slug);
-                if(data.logo)
-                    tabPin[y].set('logo',data.logo);
+                tabPin[y].set('lat',data.latitude);
+                tabPin[y].set('lng',data.longitude);
+                if(data.action_en_cours.length > 0 )
+                    tabPin[y].set('action_en_cours',data.action_en_cours[0].slug);
+                data.logo ? tabPin[y].set('logo',data.logo) : tabPin[y].set('logo','http://antoine-wattier.fr/wordpress_hetic/wp-content/themes/caritaplace/images/default.png');
 
                 var cats = new Array();
                 for (var i = 0; i < data.categories.length; i++) {
@@ -257,10 +258,7 @@ var localisation={
                 tabPin[y].setMap(map);
                 map.fitBounds(bounds);
                 y++;
-            }
-            else{
-                alert("La géolocalisation à échoué pour la raison suivante: " + status);
-            }
+
             if ( $('.adresse').attr('data-lng')!= undefined && $('.adresse').attr('data-lat')!=undefined ) {
                 var lat = $('.adresse')[0].getAttribute('data-lat');
                 var lng = $('.adresse')[0].getAttribute('data-lng');
@@ -268,7 +266,7 @@ var localisation={
                 map.setCenter(singleCoord);
                 map.setZoom(16);
             }
-        });
+       // });
     }
 
 };

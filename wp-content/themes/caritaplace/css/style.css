@@ -33,6 +33,7 @@ box-sizing:border-box; -moz-box-sizing: border-box;
   background: -ms-linear-gradient(top,  rgba(132,132,132,1) 1%,rgba(240,240,240,1) 100%); /* IE10+ */
   background: linear-gradient(to bottom,  rgba(132,132,132,1) 1%,rgba(240,240,240,1) 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#848484', endColorstr='#f0f0f0',GradientType=0 ); /* IE6-8 */
+  overflow: hidden;
 }
 header{
   width:100%;
@@ -152,9 +153,23 @@ header>div>a>img {
 }
 #liste .content{
   text-align: center;
+  width: 200%;
+  position: relative;
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+  -ms-transition: all 0.6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+}
+#liste .content>div{
+  float:left;
+  width: 50%;
+}
+#liste>div>div>div{
+  width: 1020px;
+  margin: auto;
 }
 #liste .filterlist{
-  margin:30px auto;
   text-align: center;
 }
 #liste .filterlist>div{
@@ -165,6 +180,9 @@ header>div>a>img {
   height:20px;
   padding-left:10px;
   line-height: 20px;
+}
+#liste .titreN1{
+  margin-bottom:30px;
 }
 #liste .filterlist>div>p{
   font-family:SEGOEUIL, arial;
@@ -190,7 +208,7 @@ box-sizing:border-box; -moz-box-sizing: border-box;
 #liste .element{
   overflow:hidden;
   height:130px;
-  margin:30px auto;
+  margin:20px auto;
   position:relative;
 }
 #liste .element{
@@ -255,11 +273,14 @@ margin-right: 25px;
   height: 100%;
   background-color:white;
   float: left;
-  height:100%;
   position:relative;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  display: table;
+  vertical-align: middle;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 #liste .element .infos h3{
   text-align:center;
@@ -270,17 +291,47 @@ box-sizing:border-box; -moz-box-sizing: border-box;
   margin-top:25px;
   font-weight: bold;
   font-size: 200%;
+  display: table-row;
+  vertical-align: middle;
 }
 #liste .element .infos p{
   text-align:center;
   color:#333333;
   clear:both;
-  font-size:130%;
+  font-size: 150%;
+  display: table-row;
+  vertical-align: middle;
 }
 #liste .element .infos p.categ{
   margin:0;
   width:100%;
 }
+/*************** video css *************/
+#default div #conteneurVideo{width:80%;background:#788945;margin:0 auto; text-align:left;box-shadow: rgba(0,0,0,0.6) 0 5px 8px;}
+#default div #toolbar{width:100%;position:relative;background:#343434;padding:1.8em 0em 0.4em 0em;}
+
+#default div video{opacity:1;display:block;margin:0 auto;width:100%;}
+#default div video.play{opacity:1;}
+
+#default div #progressBar{width:98%;height:10px;border-radius:4px;border:1px solid #fff;position:absolute;top:3px;right:1%;opacity:1;z-index:6;}
+#default div #progressBar span{border-top-left-radius:2px;border-bottom-left-radius:2px;height:6px;background-color:#fff;display:inline-block;position:absolute;top:1px;}
+
+#default div #progressBar .progress{z-index:7;}
+#default div #progressBar .buffer{opacity:.5;}
+
+#default div #volumeProgress{width:20%;height:10px;border-radius:4px;border:1px solid #fff;position:absolute;top:50%;left:80px;opacity:1;z-index:6;}
+#default div #volumeProgress span{border-top-left-radius:2px;border-bottom-left-radius:2px;height:6px;background-color:#fff;display:inline-block;position:absolute;top:1px;}
+
+#default div #volumeProgress .progressVol{z-index:7;}
+
+#default div #button{display:inline-block;margin-left:0.5em;z-index:2;height:30px;width:30px;border:3px solid #fff;border-radius:200px;opacity:1;text-align:center;background:transparent;transition:opacity .2s ease, -webkit-transform .2s ease;}
+#default div #button span.paus{display:none;height:15px;width:4px;background:#fff;margin:0.40em 0em 1em 0em;}
+#default div #button span.pla{content: "";display:block;margin: 0.40em 0em 0em 0.80em;border-style: solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #fff;}
+
+#default div #mute{width:20px;height:20px;background-image:url('../assets/volume.png');background-repeat:no-repeat;display:inline-block;margin-left:10px;margin-bottom:6px;}
+
+
+/*********************************************/
 
 
 /* ----------------- MAP ------------------ */
@@ -320,7 +371,7 @@ font-family:SEGOEUIL, arial;
 box-sizing:border-box; -moz-box-sizing: border-box;
 -webkit-box-sizing: border-box;
 font-weight:bold;
-margin-bottom: 50px
+margin-bottom: 20px
 }
 #filtre h3{
   text-align: right;
@@ -393,9 +444,9 @@ box-sizing:border-box; -moz-box-sizing: border-box;
 }
 #filtre>.btnType{
   width: 100%;
-  color: initial;
+  color: #353535;
   font-weight: bold;
-  margin-top:40px;
+  margin-top:30px;
   background:white;
 }
 #accordion>div>input[type="checkbox"], #accordion>div>input[type="radio"]{
@@ -533,32 +584,33 @@ box-sizing:border-box; -moz-box-sizing: border-box;
   padding:0;
   display:table;
   border-spacing: 0;
+  width:100%;
 }
 #informations .aussi .otherElement{
   display:table-cell;
-  width:338px;
+  width: 33%;
   position: relative;
   text-decoration:none;
 }
 #informations .aussi .otherElement .logo>img.photo{
   display: block;
-  width: 100px;
-  height: 100px;
+  width: 105px;
+  height: 105px;
   margin: 20px auto;
 }
 #informations .aussi .otherElement .logo>img.fond{
   position: absolute;
   left: 50%;
   margin-left: -75px;
-  top:11px;
+  top:13px;
 }
 #informations .aussi .other{
   padding: 10px 0 0 0;
   height: 70px;
 }
-#informations .aussi .other.green{background-color:#1fbba6;}
-#informations .aussi .other.orange{background-color:#ff9600;}
-#informations .aussi .other.blue{background-color:#14b9d6;}
+#informations .aussi>div:last-child>a:nth-child(1)>.other{background-color:#1fbba6;}
+#informations .aussi>div:last-child>a:nth-child(2)>.other{background-color:#ff9600;}
+#informations .aussi>div:last-child>a:nth-child(3)>.other{background-color:#14b9d6;}
 #informations .aussi .other>h3{
   text-align:center;
   color:white;

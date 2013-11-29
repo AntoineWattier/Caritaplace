@@ -1,7 +1,12 @@
+// initialisation de la map
 localisation.init({
     carte : 'the_map',
+    //callback en cas de reussite de la géoloc
     localized : function (pos) {
-        var crd = pos.coords;
+        localisation.reset_tri();
+        $("#liste .content").css("left","0");
+        $("#alternative").css("display","none");
+       var crd = pos.coords;
         var myLatlng = new google.maps.LatLng(crd.latitude,crd.longitude);
         bounds.extend(myLatlng);
         var imageMarqueur = new google.maps.MarkerImage('http://antoine-wattier.fr/wordpress_hetic/wp-content/themes/caritaplace/images/pinUser1.png', new google.maps.Size(24, 34), new google.maps.Point(0,0), new google.maps.Point(12, 34));        
@@ -23,9 +28,11 @@ localisation.init({
         });
 
     },
+    //callback en cas d'échec de la géoloc
     nonlocalized : function(pos){
         console.warn('Impossible d\'effectuer la géolocalisation');
     },
+    //callback quand le tri est effectué
     sorted : function(){
 
         // on clear les anciennes asso;
@@ -43,7 +50,7 @@ localisation.init({
                 var span = $('<span>');
                 var div_info = $('<div>').addClass('infos');
                 var nom_asso = $('<h3>').text(unescape(tabPin[i].nom));
-                var slogan = $('<p>').addClass('slog').text('Parce que trouver des slogans qui tuent n\'est pas notre métier');
+                var slogan = $('<p>').addClass('slog').text(tabPin[i].slogan);
 
                 var cats = "";
                 for (var j = 0; j < tabPin[i].categories.length; j++) {
@@ -62,33 +69,28 @@ localisation.init({
                 compteur++;
            }
         }
+        $("#alternative").css("display","block");
+        $("#liste .content").css("left","-100%");
         $("#number").text(compteur);
     }
 });
-var action = false ;
-var nom = false ;
 
+//initialisation variable pour le tric
+var boolAction = false ;
+var boolNom = false ;
+var boolCategorie = false;
 
-
-
-
+//ecouteur le bouton ok du bloc de tri
 $('input[name="ok"]').on("click", function(){
-    console.log("fonction lancée");
-    if (!nom) {
+    if (!boolNom) {
+        console.log('test');
         $(".filterlist").append("<div><p>nom : <strong>'"+$('input[name="name"]').val()+"'</strong></p><a id='nomFilter' href='#''>X</a></div>");
         nom = true;
-        $('#nomFilter').on("click", function(){
-            console.log("evenement assigné");
+        $('body').on("click", "#nomFilter", function(event){
             event.preventDefault();
-            nom = false;
-                        console.log("evenement assigné2");
-
+            boolNom = false;
             $('input[name="name"]').val("");
-                        console.log("evenement assigné3");
-
             $(this).parent().remove();
-                        console.log("evenement assigné4");
-
             localisation.tri();
             return false;
         });
@@ -96,14 +98,15 @@ $('input[name="ok"]').on("click", function(){
     localisation.tri();
 });
 
+//ecouteur sur le tric par "action en cours"
 $('input[name="action"]').on("click", function() {
     localisation.tri();
-    if (!action) {
+    if (!boolAction) {
         $(".filterlist").append("<div><p>action en cours : <strong>"+$(this).val()+"</strong></p><a id='actionFilter' href='#''>X</a></div>");
-        action = true;
+        boolAction = true;
         $('#actionFilter').on("click", function(){
             event.preventDefault();
-            action = false;
+            boolAction = false;
             $('input[name="action"]').attr('checked', false);
             $('#actionFilter').parent().remove();
             localisation.tri();
@@ -112,13 +115,38 @@ $('input[name="action"]').on("click", function() {
     }
 });
 
+//Gestion des catégories
 $('input[name="categories"]').on("click", function(){
     localisation.tri();
+    if($(this).is(':checked')){ 
+        $(".filterlist").append("<div><p>categorie : <strong>"+$(this).val()+"</strong></p><a class='catFilter' data-cat='"+$(this).val()+"' href='#''>X</a></div>");
+
+        $('body').on("click",".catFilter", function(event){
+                event.preventDefault();
+                boolCategorie = false;
+                $('input[value="'+$(this)[0].getAttribute('data-cat')+'"]').attr('checked', false);
+                $(this).parent().remove();
+                localisation.tri();
+                return false;
+        });
+    } else {
+        var checked = $(this).find(':checked').context.value;
+        for (var i = 0; i < $('.catFilter').length; i++) {
+            if($($('.catFilter')[i]).data('cat') == checked){
+                $($('.catFilter')[i]).parent().remove();
+            }
+        };
+          
+    }
 });
 
+//ecouteur sur le bouton reset du bloc de tri
 $('input[name="reset"]').on("click", function() {
     localisation.reset_tri();
     $(".filterlist").children().remove();
+    boolAction = false;
+    boolNom = false;
+    boolCategorie = false;
 });
 
 

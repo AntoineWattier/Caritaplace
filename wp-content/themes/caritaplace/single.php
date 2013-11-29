@@ -26,7 +26,9 @@
 						<div class="logo">
 							<img class="fond" src="<?php echo get_stylesheet_directory_uri(); ?>/css/images/fond_photo.png" alt="nothing"/>
 							<img class="photo" src="<?php echo (get_field('logo') ? get_field('logo') : get_stylesheet_directory_uri()."/images/default.png") ?>" alt="logo de l'association"/>
-							<p class="slog">"<?php echo get_field('slogan') ?>"</p>
+							<?php if (get_field('slogan')) :  ?>
+								<p class="slog">"<?php echo get_field('slogan') ?>"</p>
+							<?php endif ?>
 						</div>
 						<span></span>
 					</div>
@@ -91,11 +93,7 @@
 					</div>
 				</div>
 				<div class="element aussi">
-					<div>
-						<h2>Ces associations pourraient également vous plaîre :</h2>
-						<span></span>
-					</div>
-					<div>
+					
 						<?php	
 
 						$args=array(
@@ -107,8 +105,13 @@
 							'categories'=> $categories[0]->slug
 						);
 						$my_query = new WP_Query($args);
-						if( $my_query->have_posts() ) {
-							while ($my_query->have_posts()) : $my_query->the_post(); ?>
+						if( $my_query->have_posts() ) { ?>
+							<div>
+								<h2>Ces associations pourraient également vous plaîre :</h2>
+								<span></span>
+							</div>
+							<div>
+							<?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
 								<a href="<?php echo the_permalink() ?>" class="otherElement">
 									<div class="logo">
 										<img class="fond" src="<?php echo get_stylesheet_directory_uri(); ?>/css/images/cercle.png" alt="nothing"/>
@@ -128,12 +131,12 @@
 									</div>
 								</a>
 							<?php
-							endwhile;
-						}
+							endwhile; ?>
+							</div>
+						<?php }
 						wp_reset_query();
 						
 						?>
-					</div>
 				
 			</div>
 		</div>

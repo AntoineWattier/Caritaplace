@@ -61,26 +61,50 @@
 					        <?php endforeach; ?>
 					</div>
 				</div>
-				<input class="btnType" type="button" name="reset" VALUE="RESET">
+				<input class="btnType" type="button" name="reset" VALUE="Réinitialiser les filtres">
 			</div>
 		</section>
 		<section id="liste">
 			<div class="content clearfix">
 				<div id="default">
-					<h1 class="titreN1">Avec Caritaplace, aidez les associations autour de vous !</h1>
-					<!-- ICI LA VIDEO -->
+					<div>
+						<h1 class="titreN1">Avec Caritaplace, aidez les associations autour de vous !</h1>
+						<div id="conteneurVideo">
+							<video id="video">
+								<source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/TheMotionCaritaplace.mp4"  type='video/mp4' >
+								<source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/TheMotionCaritaplace.iphone.mp4" type='video/mp4'>
+								<source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/TheMotionCaritaplace.ogv" type='video/ogg' >
+								<p>Your user agent does not support the HTML5 Video element.</p>
+							</video>
+							<div id="toolbar">
+								<div id="button" class="loading">
+								  <span name="paus" class="paus"></span>
+								  <span name="paus" class="paus"></span>
+								  <span class="pla"></span>
+								</div>
+								<div id="progressBar">
+								  <span class="progress"></span>
+								  <span class="buffer"></span>
+								</div>
+								<div id="mute" >
+									
+								</div>
+								<div id="volumeProgress">
+								  <span class="progressVol"></span>
+								</div>
+							</div>
+						 </div>
+					</div>
 				</div>
 				<div id="alternative">
-					<h2 class="titreN1"><span id="number">6</span> associations correspondent à votre recherche</h2>
-					<div class="filterlist clearfix">
-						<div>
-							<p>catégorie : <strong>"Environnement"</strong></p>
-							<a id="catFilter" href="#">X</a>
+					<div>
+						<h2 class="titreN1"><span id="number">6</span> associations correspondent à votre recherche</h2>
+						<div class="filterlist clearfix">		
 						</div>
-						
+						<div id="founded_assos" class="clearfix"></div>
 					</div>
-					<div id="founded_assos"></div>
 				</div>
 			</div>
 		</section>
+		
 		<?php get_footer() ?>
