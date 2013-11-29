@@ -4,6 +4,11 @@
  */
 
  get_header(); ?>
+
+<!-- Clean du panier -->
+<script type="text/javascript">
+	PAYPAL.apps.MiniCart.reset();
+</script>
 <body>
 	<div class="superglobale">
 		<section id="map" class="little">

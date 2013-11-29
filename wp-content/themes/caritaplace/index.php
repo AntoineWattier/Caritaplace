@@ -3,16 +3,24 @@
 <body>
 	<div class="superglobale">
 		<section id="map">
-			
 			<div id="the_map">
-				<h3> CHARGEMENT DE LA PAGE </h3>
+				<div class="loader">
+				     <div></div>
+				     <div></div>
+				     <div></div>
+				     <div></div>
+				     <div></div>
+				     <div></div>
+				     <div></div>
+				     <div></div>
+				</div>
 			</div>
 			<div id="filtre">
 				<h2>PRECISEZ VOTRE RECHERCHE</h2>
 				<div>
-					<button class="btnType btn btn-5 btn-5a" id="rond"><span>LES ASSOCIATIONS AUTOUR DE MOI</span></button>
+					<button class="btnType btn btn-5 btn-5a" id="rond"><span>Où suis-je ?</span></button>
 					<!-- CREATION DU LOADER -->
-					<div class="loader">
+					<div class="miniLoader">
 						 <div></div>
 						 <div></div>
 					     <div></div>
@@ -53,7 +61,7 @@
 					        <?php endforeach; ?>
 					</div>
 				</div>
-				<input type="button" name="reset" VALUE="RESET">
+				<input class="btnType" type="button" name="reset" VALUE="RESET">
 			</div>
 		</section>
 		<section id="liste">
@@ -67,15 +75,11 @@
 					<div class="filterlist clearfix">
 						<div>
 							<p>nom : <strong>"Nom recherche"</strong></p>
-							<a href="#">X</a>
+							<a id="nomFilter" href="#">X</a>
 						</div>
 						<div>
 							<p>catégorie : <strong>"Environnement"</strong></p>
-							<a href="#">X</a>
-						</div>
-						<div>
-							<p>action en cours : <strong>Oui</strong></p>
-							<a href="#">X</a>
+							<a id="catFilter" href="#">X</a>
 						</div>
 					</div>
 					<div class="element second col-md-6 col-sm-12 col-xs-12">
@@ -117,30 +121,7 @@
 							<p class="categ">Catégories: Environnement, Sport</p>
 						</div>
 					</div>
-					<!-- On doit mettre le script Paypal ici afin de garder le panier sur la home -->
-					<div style="display:none">
-						<script id="paypal" src="<?php echo get_stylesheet_directory_uri(); ?>/js/paypal-button-minicart.min.js?merchant=wattier.antoine@gmail.com" 
-							    data-button="cart" 
-							    data-name="<?php the_title() ?>" 
-							    data-amount="5" 
-							    data-currency="EUR" 
-							    data-locale="fr_FR"
-							    data-callback="<?php echo site_url() ?>/confirmation"
-							    data-env="sandbox"
-							></script>
-							<script type="text/javascript">
-							PAYPAL.apps.MiniCart.render({
-
-								//Ne marche pas correctement..
-							    strings:{
-							    button:"J\'ai fini",
-							    subtotal:"TEST: ",
-							    discount:"Discount: ",
-							    shipping:"does not include shipping & tax",
-							    processing:"En cours..."}
-							});
-							</script>
-					</div>
+					
 				</div>
 			</div>
 		</section>

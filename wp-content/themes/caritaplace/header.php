@@ -11,6 +11,7 @@
 	<?php wp_head(); ?>
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
 	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
+
 </head>
 <header>
 	<span></span>
@@ -24,3 +25,5 @@
 		<span></span>
 	</div>
 </header>
+<!-- On doit instancier Paypal ici pour l'avoir dans toutes les pages -->
+<script id="paypal" src="<?php echo get_stylesheet_directory_uri(); ?>/js/paypal-button-minicart.min.js"></script>

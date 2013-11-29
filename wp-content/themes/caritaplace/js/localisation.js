@@ -182,13 +182,6 @@ var localisation={
                     localisation.geocodeAddress(fichierJson[i].adresse_de_lassociation,i,content);
                 }
             }
-            if ( $('.adresse').attr('data-lng')!= undefined && $('.adresse').attr('data-lat')!=undefined ) {
-                var lat = $('.adresse')[0].getAttribute('data-lat');
-                var lng = $('.adresse')[0].getAttribute('data-lng');
-                var singleCoord = new google.maps.LatLng(lat,lng);
-                map.setCenter(singleCoord);
-                map.setZoom(16);
-            }
         });
         this.geolocUser.call(this);
     },
@@ -254,7 +247,13 @@ var localisation={
             else{
                 alert("La géolocalisation à échoué pour la raison suivante: " + status);
             }
-            
+            if ( $('.adresse').attr('data-lng')!= undefined && $('.adresse').attr('data-lat')!=undefined ) {
+                var lat = $('.adresse')[0].getAttribute('data-lat');
+                var lng = $('.adresse')[0].getAttribute('data-lng');
+                var singleCoord = new google.maps.LatLng(lat,lng);
+                map.setCenter(singleCoord);
+                map.setZoom(16);
+            }
         });
     }
 

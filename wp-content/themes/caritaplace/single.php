@@ -3,6 +3,16 @@
 	<div class="superglobale">
 	<section id="map" class="little">
 		<div id="the_map">
+			<div class="loader">
+				  	<div></div>
+				    <div></div>
+				    <div></div>
+				    <div></div>
+				    <div></div>
+				    <div></div>
+				    <div></div>
+				    <div></div>
+			</div>
 		</div>
 	</section>
 	<section id="informations">
@@ -11,7 +21,7 @@
 		<div class="content clearfix">
 			<div class="clearfix">
 				<div class="element asso">
-					<div class="top">
+					<div>
 						<h2>Association <?php the_title() ?></h2>
 						<div class="logo">
 							<img class="fond" src="<?php echo get_stylesheet_directory_uri(); ?>/css/images/fond_photo.png" alt="nothing"/>
@@ -20,37 +30,38 @@
 						</div>
 						<span></span>
 					</div>
-					<div class="infos">
+					<div>
 						<p><?php echo get_field('description') ?></p>
 					</div>
 				</div>
 				<div class="element inf">
-					<div class="top">
+					<div>
 						<h2>Informations</h2>
 						<span></span>
 					</div>
-					<div class="infos">
+					<div>
 						<p class="adherents"><strong><?php echo get_field('nombre_dadherents') ?></strong> adhérents</p>
 						<p class="adresse" data-lat="<?php echo get_field('latitude') ?>" data-lng="<?php echo get_field('longitude') ?>"><?php echo get_field('adresse_de_lassociation') ?><br/> <?php echo get_field('code_postal')." ".get_field('ville') ?></p>
+						<p class="categ"><strong>sport, enfance</strong></p>
+						<p class="action"><strong>Action en cours:</strong>Reconstruction de la maison de zajac.</p>
 					</div>
 				</div>
 			</div>
 				<div class="element donnez">
-					<div class="top">
+					<div>
 						<h2>Vous aussi, faites un don et aidez cette association</h2>
 						<span></span>
 					</div>
-					<div class="infos">
-						<input type="text" class="giveMonney" name="rangeName" value="1;100"></input>
-
-						
-						<script id="paypal" src="<?php echo get_stylesheet_directory_uri(); ?>/js/paypal-button-minicart.min.js?merchant=wattier.antoine@gmail.com" 
+					<div>
+						<input type="text" class="giveMonney" name="rangeName" value="1;100"></input>			
+						<script id="paypal" src="<?php echo get_stylesheet_directory_uri(); ?>/js/paypal-button-minicart.min.js?merchant=seller@testhetic.net" 
 						    data-button="cart" 
 						    data-name="<?php the_title() ?>" 
 						    data-amount="5" 
 						    data-currency="EUR" 
 						    data-locale="fr_FR"
 						    data-callback="<?php echo site_url() ?>/confirmation"
+						    data-return="<?php echo site_url() ?>/confirmation"
 						    data-env="sandbox"
 						></script>
 						<script type="text/javascript">
@@ -68,11 +79,11 @@
 					</div>
 				</div>
 				<div class="element aussi">
-					<div class="top">
+					<div>
 						<h2>Ces associations pourraient également vous plaîre :</h2>
 						<span></span>
 					</div>
-					<div class="infos">
+					<div>
 						<a href="" class="otherElement">
 							<div class="logo">
 								<img class="fond" src="<?php echo get_stylesheet_directory_uri(); ?>/css/images/cercle.png" alt="nothing"/>

@@ -27,6 +27,7 @@ localisation.init({
         console.warn('Impossible d\'effectuer la géolocalisation');
     }
 });
+var action = false ;
 
 //
 
@@ -40,6 +41,20 @@ $('input[name="categories"]').on("click", function(){
 
 $('input[name="action"]').on("click", function() {
     localisation.tri();
+    console.log(action);
+    if (!action) {
+        $(".filterlist").append("<div><p>action en cours : <strong>"+$(this).val()+"</strong></p><a id='actionFilter' href='#''>X</a></div>");
+        action = true;
+        $('#actionFilter').on("click", function(){
+            event.preventDefault();
+            action = false;
+            $('input[name="action"]').attr('checked', false);
+            $('#actionFilter').parent().remove();
+            localisation.tri();
+            console.log(action+"!");
+            return false;
+        });
+    }
 });
 
 $('input[name="reset"]').on("click", function() {
